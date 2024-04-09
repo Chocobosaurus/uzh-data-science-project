@@ -2,7 +2,7 @@
 Project work in the course "Introduction to Data Science" at University of Zurich.
 We investigate the public transportation system in the city of Zurich using data analytic techniques.
 
-You can find more information about the project in the [project proposal](./docs/Project%20Proposal%20-%20Navigating%20Zurich.pdf).
+You can find more information about the project in the [project proposal](./docs/static/pdfs/Project%20Proposal%20-%20Navigating%20Zurich.pdf).
 
 Project members:
 
