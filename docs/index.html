@@ -106,12 +106,12 @@
         <div class="hero-body">
             <video poster="" id="tree" autoplay controls muted loop height="100%">
                 <!-- Your video here -->
-                <source src="static/videos/banner_video.mp4"
+                <source src="static/videos/traffic.mp4"
                         type="video/mp4">
             </video>
             <h2 class="subtitle has-text-centered">
-                Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at,
-                placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
+                Spatialtemporal analysis of the traffic in the city of Zurich. Green lines represent connections
+                with low seat occupancy, while red lines represent connections with high seat occupancy.
             </h2>
         </div>
     </div>
@@ -142,29 +142,18 @@
 
 
 <!-- Image carousel -->
+
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
+            TODO: Please insert your plots here
+
             <div id="results-carousel" class="carousel results-carousel">
                 <div class="item" style="height: 1000px">
                     <!-- Your image here -->
-                    <iframe src="static/maps/map_7_True.html" title="Map" width="100%" height="80%"></iframe>
+                    <img src="static/images/map_9_8_True.png" alt="Traffic Visualization">
                     <h2 class="subtitle has-text-centered">
-                        Zurich Traffic between 7:00-8:00 AM (weekday)
-                    </h2>
-                </div>
-                <div class="item" style="height: 100%">
-                    <!-- Your image here -->
-                    <iframe src="static/maps/map_17_True.html" title="Map" width="100%" height="80%"></iframe>
-                    <h2 class="subtitle has-text-centered">
-                        Zurich Traffic between 5:00-6:00 PM (weekday)
-                    </h2>
-                </div>
-                <div class="item" style="height: 100%">
-                    <!-- Your image here -->
-                    <iframe src="static/maps/map_23_False.html" title="Map" width="100%" height="80%"></iframe>
-                    <h2 class="subtitle has-text-centered">
-                        Zurich Traffic between 11:00-12:00 PM (weekend)
+                        Zurich Traffic between 8:00-9:00 AM (weekend)
                     </h2>
                 </div>
             </div>
@@ -174,26 +163,143 @@
 <!-- End image carousel -->
 
 
-<!-- Youtube video -->
 <section class="hero is-small is-light">
     <div class="hero-body">
         <div class="container">
-            <!-- Paper video. -->
-            <h2 class="title is-3">Video Presentation</h2>
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-
-                    <div class="publication-video">
-                        <!-- Youtube embed code here -->
-                        <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0"
-                                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
+            <h2 class="title is-3">Links to Traffic Maps</h2>
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Weekday Map</th>
+                    <th>Weekend Map</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>0.00am - 1.00am</td>
+                    <td><a href="static/maps/map_0_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_0_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>1.00am - 2.00am</td>
+                    <td><a href="static/maps/map_1_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_1_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>2.00am - 3.00am</td>
+                    <td><a href="static/maps/map_2_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_2_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>3.00am - 4.00am</td>
+                    <td><a href="static/maps/map_3_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_3_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>4.00am - 5.00am</td>
+                    <td><a href="static/maps/map_4_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_4_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>5.00am - 6.00am</td>
+                    <td><a href="static/maps/map_5_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_5_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>6.00am - 7.00am</td>
+                    <td><a href="static/maps/map_6_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_6_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>7.00am - 8.00am</td>
+                    <td><a href="static/maps/map_7_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_7_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>8.00am - 9.00am</td>
+                    <td><a href="static/maps/map_8_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_8_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>9.00am - 10.00am</td>
+                    <td><a href="static/maps/map_9_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_9_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>10.00am - 11.00am</td>
+                    <td><a href="static/maps/map_10_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_10_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>11.00am - 12.00am</td>
+                    <td><a href="static/maps/map_11_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_11_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>12.00pm - 1.00pm</td>
+                    <td><a href="static/maps/map_12_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_12_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>1.00pm - 2.00pm</td>
+                    <td><a href="static/maps/map_13_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_13_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>2.00pm - 3.00pm</td>
+                    <td><a href="static/maps/map_14_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_14_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>3.00pm - 4.00pm</td>
+                    <td><a href="static/maps/map_15_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_15_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>4.00pm - 5.00pm</td>
+                    <td><a href="static/maps/map_16_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_16_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>5.00pm - 6.00pm</td>
+                    <td><a href="static/maps/map_17_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_17_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>6.00pm - 7.00pm</td>
+                    <td><a href="static/maps/map_18_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_18_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>7.00pm - 8.00pm</td>
+                    <td><a href="static/maps/map_19_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_19_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>8.00pm - 9.00pm</td>
+                    <td><a href="static/maps/map_20_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_20_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>9.00pm - 10.00pm</td>
+                    <td><a href="static/maps/map_21_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_21_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>10.00pm - 11.00pm</td>
+                    <td><a href="static/maps/map_22_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_22_True.html" target="_blank">Map</a></td>
+                </tr>
+                <tr>
+                    <td>11.00pm - 0.00am</td>
+                    <td><a href="static/maps/map_23_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/map_23_True.html" target="_blank">Map</a></td>
+                </tr>
+            </table>
         </div>
     </div>
 </section>
-<!-- End youtube video -->
 
 
 <!-- Video carousel -->
