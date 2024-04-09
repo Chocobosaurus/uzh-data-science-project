@@ -1,4 +1,4 @@
-# UZH Data Science Project: Navigating Zurich
+# Navigating Zurich: A Comprehensive Analysis of Urban Traffic Dynamics
 Project work in the course "Introduction to Data Science" at University of Zurich.
 We investigate the public transportation system in the city of Zurich using data analytic techniques.
 
