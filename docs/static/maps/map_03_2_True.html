@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_e9fbf2c7c7cd5b5673ec3a8323174656 {
+                #map_bf817e0274fe15483720b108a8251a48 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -56,14 +56,14 @@
     
     <h1 style="position:absolute;z-index:100000;left:20px;color:#bbb; bottom:20px" >Time: 2am-3am (Weekday)</h1>
     
-            <div class="folium-map" id="map_e9fbf2c7c7cd5b5673ec3a8323174656" ></div>
+            <div class="folium-map" id="map_bf817e0274fe15483720b108a8251a48" ></div>
         
 </body>
 <script>
     
     
-            var map_e9fbf2c7c7cd5b5673ec3a8323174656 = L.map(
-                "map_e9fbf2c7c7cd5b5673ec3a8323174656",
+            var map_bf817e0274fe15483720b108a8251a48 = L.map(
+                "map_bf817e0274fe15483720b108a8251a48",
                 {
                     center: [47.38, 8.55],
                     crs: L.CRS.EPSG3857,
@@ -77,22 +77,22 @@
 
         
     
-            var tile_layer_7351ac5e64dff6cfec52410ba2347d4e = L.tileLayer(
+            var tile_layer_b749caa1c0e79c09021c22b46ed77782 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
             );
         
     
-            tile_layer_7351ac5e64dff6cfec52410ba2347d4e.addTo(map_e9fbf2c7c7cd5b5673ec3a8323174656);
+            tile_layer_b749caa1c0e79c09021c22b46ed77782.addTo(map_bf817e0274fe15483720b108a8251a48);
         
     
-            var marker_9b23caff40d69a29a7ed45222ec63527 = L.marker(
+            var marker_a4b1575c6da78e5a6511962b51ef8869 = L.marker(
                 [47.376009572041205, 8.548333],
                 {"name": "Locations"}
-            ).addTo(map_e9fbf2c7c7cd5b5673ec3a8323174656);
+            ).addTo(map_bf817e0274fe15483720b108a8251a48);
         
     
-            marker_9b23caff40d69a29a7ed45222ec63527.bindTooltip(
+            marker_a4b1575c6da78e5a6511962b51ef8869.bindTooltip(
                 `<div>
                      Zurich University
                  </div>`,
@@ -100,13 +100,13 @@
             );
         
     
-            var marker_ff66b99e3821607b69a0e1e015d21d03 = L.marker(
+            var marker_211684ceaa1ce50f76e841e2c6adacd2 = L.marker(
                 [47.398244842674096, 8.549042321653372],
                 {"name": "Locations"}
-            ).addTo(map_e9fbf2c7c7cd5b5673ec3a8323174656);
+            ).addTo(map_bf817e0274fe15483720b108a8251a48);
         
     
-            marker_ff66b99e3821607b69a0e1e015d21d03.bindTooltip(
+            marker_211684ceaa1ce50f76e841e2c6adacd2.bindTooltip(
                 `<div>
                      Irchel Campus
                  </div>`,
@@ -114,13 +114,13 @@
             );
         
     
-            var marker_526a49f24583e4f713bd9750440b712f = L.marker(
+            var marker_b1ab82786a7508b3312739f261c49ff8 = L.marker(
                 [47.37801581583341, 8.540456430522084],
                 {"name": "Locations"}
-            ).addTo(map_e9fbf2c7c7cd5b5673ec3a8323174656);
+            ).addTo(map_bf817e0274fe15483720b108a8251a48);
         
     
-            marker_526a49f24583e4f713bd9750440b712f.bindTooltip(
+            marker_b1ab82786a7508b3312739f261c49ff8.bindTooltip(
                 `<div>
                      Main Station
                  </div>`,
@@ -128,7 +128,7 @@
             );
         
     
-        function geo_json_2eecdad91c2dd899dd81f7e550e0c912_styler(feature) {
+        function geo_json_25fed92b6d4ef3e4a237a241ad3a8333_styler(feature) {
             switch(feature.id) {
                 case "6458": case "6459": 
                     return {"color": "#dfdf37", "fillColor": "#dfdf37", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
@@ -148,43 +148,43 @@
                     return {"color": "#fdae35", "fillColor": "#fdae35", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
             }
         }
-        function geo_json_2eecdad91c2dd899dd81f7e550e0c912_highlighter(feature) {
+        function geo_json_25fed92b6d4ef3e4a237a241ad3a8333_highlighter(feature) {
             switch(feature.id) {
                 default:
                     return {"fillOpacity": 1.0, "opacity": 1.0, "weight": 4.0};
             }
         }
 
-        function geo_json_2eecdad91c2dd899dd81f7e550e0c912_onEachFeature(feature, layer) {
+        function geo_json_25fed92b6d4ef3e4a237a241ad3a8333_onEachFeature(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                            geo_json_2eecdad91c2dd899dd81f7e550e0c912.resetStyle(e.target);
+                            geo_json_25fed92b6d4ef3e4a237a241ad3a8333.resetStyle(e.target);
                     }
                 },
                 mouseover: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                        const highlightStyle = geo_json_2eecdad91c2dd899dd81f7e550e0c912_highlighter(e.target.feature)
+                        const highlightStyle = geo_json_25fed92b6d4ef3e4a237a241ad3a8333_highlighter(e.target.feature)
                         e.target.setStyle(highlightStyle);
                     }
                 },
             });
         };
-        var geo_json_2eecdad91c2dd899dd81f7e550e0c912 = L.geoJson(null, {
-                onEachFeature: geo_json_2eecdad91c2dd899dd81f7e550e0c912_onEachFeature,
+        var geo_json_25fed92b6d4ef3e4a237a241ad3a8333 = L.geoJson(null, {
+                onEachFeature: geo_json_25fed92b6d4ef3e4a237a241ad3a8333_onEachFeature,
             
-                style: geo_json_2eecdad91c2dd899dd81f7e550e0c912_styler,
+                style: geo_json_25fed92b6d4ef3e4a237a241ad3a8333_styler,
         });
 
-        function geo_json_2eecdad91c2dd899dd81f7e550e0c912_add (data) {
-            geo_json_2eecdad91c2dd899dd81f7e550e0c912
+        function geo_json_25fed92b6d4ef3e4a237a241ad3a8333_add (data) {
+            geo_json_25fed92b6d4ef3e4a237a241ad3a8333
                 .addData(data);
         }
-            geo_json_2eecdad91c2dd899dd81f7e550e0c912_add({"features": [{"geometry": {"coordinates": [[8.38008990655668, 47.39439225930919], [8.37633433034017, 47.39422754861864]], "type": "LineString"}, "id": "6458", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Kindhausen AG, Eichholz", "name_to": "Kindhausen AG", "seat_occupancy_mean": 19, "stroke": "#dfdf37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.37633433034017, 47.39422754861864], [8.376423040486646, 47.39418139117165], [8.376418658935071, 47.39428129513556], [8.37633433034017, 47.39422754861864]]], "type": "Polygon"}, "id": "6459", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Kindhausen AG, Eichholz", "name_to": "Kindhausen AG", "seat_occupancy_mean": 19, "stroke": "#dfdf37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.3850162220822, 47.38983616415059], [8.380677020824589, 47.39416443543022]], "type": "LineString"}, "id": "6460", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Vorb\u00fchl", "name_to": "Kindhausen AG, Eichholz", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.380677020824589, 47.39416443543022], [8.38070302451496, 47.39406787556233], [8.380773645968354, 47.39413867535273], [8.380677020824589, 47.39416443543022]]], "type": "Polygon"}, "id": "6461", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Vorb\u00fchl", "name_to": "Kindhausen AG, Eichholz", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.387924640132889, 47.38820975502967], [8.385470040911489, 47.38950221189654]], "type": "LineString"}, "id": "6462", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bernold", "name_to": "Bergdietikon, Vorb\u00fchl", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.385470040911489, 47.38950221189654], [8.385523374577254, 47.3894176215892], [8.385569965099442, 47.3895061050523], [8.385470040911489, 47.38950221189654]]], "type": "Polygon"}, "id": "6463", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bernold", "name_to": "Bergdietikon, Vorb\u00fchl", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.389398892507261, 47.39090405070472], [8.388179916417025, 47.38829562393187]], "type": "LineString"}, "id": "6464", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bergli", "name_to": "Bergdietikon, Bernold", "seat_occupancy_mean": 21, "stroke": "#e3db38", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.388179916417025, 47.38829562393187], [8.388261879379124, 47.38835291330997], [8.388171283841267, 47.38839525062827], [8.388179916417025, 47.38829562393187]]], "type": "Polygon"}, "id": "6465", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bergli", "name_to": "Bergdietikon, Bernold", "seat_occupancy_mean": 21, "stroke": "#e3db38", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.394184568186816, 47.398998426993934], [8.389684101646909, 47.39144241749276]], "type": "LineString"}, "id": "6466", "properties": {"FZ_AB": 2, "free_seats_max": 24, "free_seats_mean": 23, "name_from": "Dietikon, Marmori-Weiher", "name_to": "Bergdietikon, Bergli", "seat_occupancy_mean": 25, "stroke": "#eecf3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.389684101646909, 47.39144241749276], [8.389771375651186, 47.39149123601565], [8.389685460568048, 47.391542408259], [8.389684101646909, 47.39144241749276]]], "type": "Polygon"}, "id": "6467", "properties": {"FZ_AB": 2, "free_seats_max": 24, "free_seats_mean": 23, "name_from": "Dietikon, Marmori-Weiher", "name_to": "Bergdietikon, Bergli", "seat_occupancy_mean": 25, "stroke": "#eecf3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.392024059068007, 47.403568994542525], [8.393146549471114, 47.40238066892517]], "type": "LineString"}, "id": "6560", "properties": {"FZ_AB": 2, "free_seats_max": 21, "free_seats_mean": 21, "name_from": "Dietikon, Stelzenacker", "name_to": "Dietikon, H\u00e4tschen", "seat_occupancy_mean": 33, "stroke": "#faba39", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.393146549471114, 47.40238066892517], [8.393123428873414, 47.40247795940755], [8.393050733142974, 47.4024092911414], [8.393146549471114, 47.40238066892517]]], "type": "Polygon"}, "id": "6561", "properties": {"FZ_AB": 2, "free_seats_max": 21, "free_seats_mean": 21, "name_from": "Dietikon, Stelzenacker", "name_to": "Dietikon, H\u00e4tschen", "seat_occupancy_mean": 33, "stroke": "#faba39", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.393717388763049, 47.402110192397494], [8.396007082999487, 47.40194713425275]], "type": "LineString"}, "id": "6562", "properties": {"FZ_AB": 2, "free_seats_max": 22, "free_seats_mean": 22, "name_from": "Dietikon, H\u00e4tschen", "name_to": "Dietikon, Oberdorf", "seat_occupancy_mean": 29, "stroke": "#f5c53a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.396007082999487, 47.40194713425275], [8.395924250928733, 47.402003159676035], [8.395917147524285, 47.40190341228687], [8.396007082999487, 47.40194713425275]]], "type": "Polygon"}, "id": "6563", "properties": {"FZ_AB": 2, "free_seats_max": 22, "free_seats_mean": 22, "name_from": "Dietikon, H\u00e4tschen", "name_to": "Dietikon, Oberdorf", "seat_occupancy_mean": 29, "stroke": "#f5c53a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.396063383590858, 47.401831980344866], [8.394507881334233, 47.39950989985532]], "type": "LineString"}, "id": "6564", "properties": {"FZ_AB": 2, "free_seats_max": 23, "free_seats_mean": 23, "name_from": "Dietikon, Oberdorf", "name_to": "Dietikon, Marmori-Weiher", "seat_occupancy_mean": 26, "stroke": "#efcd3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.394507881334233, 47.39950989985532], [8.394597620357754, 47.39955402363187], [8.394514538534583, 47.399609678017676], [8.394507881334233, 47.39950989985532]]], "type": "Polygon"}, "id": "6565", "properties": {"FZ_AB": 2, "free_seats_max": 23, "free_seats_mean": 23, "name_from": "Dietikon, Oberdorf", "name_to": "Dietikon, Marmori-Weiher", "seat_occupancy_mean": 26, "stroke": "#efcd3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.395982919078804, 47.406872034395406], [8.3920779553742, 47.404110611036394]], "type": "LineString"}, "id": "6606", "properties": {"FZ_AB": 2, "free_seats_max": 20, "free_seats_mean": 19, "name_from": "Dietikon, Oetwilerstrasse", "name_to": "Dietikon, Stelzenacker", "seat_occupancy_mean": 37, "stroke": "#fdae35", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.3920779553742, 47.404110611036394], [8.392177533257078, 47.40411978955705], [8.39211979548358, 47.40420143727295], [8.3920779553742, 47.404110611036394]]], "type": "Polygon"}, "id": "6607", "properties": {"FZ_AB": 2, "free_seats_max": 20, "free_seats_mean": 19, "name_from": "Dietikon, Oetwilerstrasse", "name_to": "Dietikon, Stelzenacker", "seat_occupancy_mean": 37, "stroke": "#fdae35", "weekday": true}, "type": "Feature"}], "type": "FeatureCollection"});
+            geo_json_25fed92b6d4ef3e4a237a241ad3a8333_add({"features": [{"geometry": {"coordinates": [[8.380094288108255, 47.39429235534528], [8.376338711891744, 47.39412764465472]], "type": "LineString"}, "id": "6458", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Kindhausen AG, Eichholz", "name_to": "Kindhausen AG", "seat_occupancy_mean": 19, "stroke": "#dfdf37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.376338711891744, 47.39412764465472], [8.37642742203822, 47.394081487207735], [8.376423040486646, 47.39418139117165], [8.376338711891744, 47.39412764465472]]], "type": "Polygon"}, "id": "6459", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Kindhausen AG, Eichholz", "name_to": "Kindhausen AG", "seat_occupancy_mean": 19, "stroke": "#dfdf37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.384945600628805, 47.38976536436019], [8.380606399371194, 47.39409363563982]], "type": "LineString"}, "id": "6460", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Vorb\u00fchl", "name_to": "Kindhausen AG, Eichholz", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.380606399371194, 47.39409363563982], [8.380632403061565, 47.39399707577193], [8.38070302451496, 47.39406787556233], [8.380606399371194, 47.39409363563982]]], "type": "Polygon"}, "id": "6461", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Vorb\u00fchl", "name_to": "Kindhausen AG, Eichholz", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.3878780496107, 47.38812127156657], [8.3854234503893, 47.38941372843344]], "type": "LineString"}, "id": "6462", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bernold", "name_to": "Bergdietikon, Vorb\u00fchl", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.3854234503893, 47.38941372843344], [8.385476784055065, 47.3893291381261], [8.385523374577254, 47.389417621589196], [8.3854234503893, 47.38941372843344]]], "type": "Polygon"}, "id": "6463", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bernold", "name_to": "Bergdietikon, Vorb\u00fchl", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.389489488045118, 47.39086171338643], [8.388270511954882, 47.388253286613576]], "type": "LineString"}, "id": "6464", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bergli", "name_to": "Bergdietikon, Bernold", "seat_occupancy_mean": 21, "stroke": "#e3db38", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.388270511954882, 47.388253286613576], [8.388352474916982, 47.38831057599168], [8.388261879379124, 47.38835291330998], [8.388270511954882, 47.388253286613576]]], "type": "Polygon"}, "id": "6465", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bergli", "name_to": "Bergdietikon, Bernold", "seat_occupancy_mean": 21, "stroke": "#e3db38", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.394270483269954, 47.39894725475059], [8.389770016730047, 47.391391245249416]], "type": "LineString"}, "id": "6466", "properties": {"FZ_AB": 2, "free_seats_max": 24, "free_seats_mean": 23, "name_from": "Dietikon, Marmori-Weiher", "name_to": "Bergdietikon, Bergli", "seat_occupancy_mean": 25, "stroke": "#eecf3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.389770016730047, 47.391391245249416], [8.389857290734325, 47.39144006377231], [8.389771375651186, 47.39149123601565], [8.389770016730047, 47.391391245249416]]], "type": "Polygon"}, "id": "6467", "properties": {"FZ_AB": 2, "free_seats_max": 24, "free_seats_mean": 23, "name_from": "Dietikon, Marmori-Weiher", "name_to": "Bergdietikon, Bergli", "seat_occupancy_mean": 25, "stroke": "#eecf3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.392096754798446, 47.40363766280868], [8.393219245201553, 47.40244933719132]], "type": "LineString"}, "id": "6560", "properties": {"FZ_AB": 2, "free_seats_max": 21, "free_seats_mean": 21, "name_from": "Dietikon, Stelzenacker", "name_to": "Dietikon, H\u00e4tschen", "seat_occupancy_mean": 33, "stroke": "#faba39", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.393219245201553, 47.40244933719132], [8.393196124603854, 47.4025466276737], [8.393123428873414, 47.402477959407555], [8.393219245201553, 47.40244933719132]]], "type": "Polygon"}, "id": "6561", "properties": {"FZ_AB": 2, "free_seats_max": 21, "free_seats_mean": 21, "name_from": "Dietikon, Stelzenacker", "name_to": "Dietikon, H\u00e4tschen", "seat_occupancy_mean": 33, "stroke": "#faba39", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.393724492167495, 47.40220993978666], [8.396014186403933, 47.402046881641915]], "type": "LineString"}, "id": "6562", "properties": {"FZ_AB": 2, "free_seats_max": 22, "free_seats_mean": 22, "name_from": "Dietikon, H\u00e4tschen", "name_to": "Dietikon, Oberdorf", "seat_occupancy_mean": 29, "stroke": "#f5c53a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.396014186403933, 47.402046881641915], [8.395931354333179, 47.4021029070652], [8.395924250928731, 47.402003159676035], [8.396014186403933, 47.402046881641915]]], "type": "Polygon"}, "id": "6563", "properties": {"FZ_AB": 2, "free_seats_max": 22, "free_seats_mean": 22, "name_from": "Dietikon, H\u00e4tschen", "name_to": "Dietikon, Oberdorf", "seat_occupancy_mean": 29, "stroke": "#f5c53a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.396146465414027, 47.40177632595906], [8.394590963157402, 47.399454245469514]], "type": "LineString"}, "id": "6564", "properties": {"FZ_AB": 2, "free_seats_max": 23, "free_seats_mean": 23, "name_from": "Dietikon, Oberdorf", "name_to": "Dietikon, Marmori-Weiher", "seat_occupancy_mean": 26, "stroke": "#efcd3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.394590963157402, 47.399454245469514], [8.394680702180922, 47.39949836924607], [8.394597620357752, 47.39955402363187], [8.394590963157402, 47.399454245469514]]], "type": "Polygon"}, "id": "6565", "properties": {"FZ_AB": 2, "free_seats_max": 23, "free_seats_mean": 23, "name_from": "Dietikon, Oberdorf", "name_to": "Dietikon, Marmori-Weiher", "seat_occupancy_mean": 26, "stroke": "#efcd3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.396040656852302, 47.4067903866795], [8.392135693147697, 47.40402896332049]], "type": "LineString"}, "id": "6606", "properties": {"FZ_AB": 2, "free_seats_max": 20, "free_seats_mean": 19, "name_from": "Dietikon, Oetwilerstrasse", "name_to": "Dietikon, Stelzenacker", "seat_occupancy_mean": 37, "stroke": "#fdae35", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.392135693147697, 47.40402896332049], [8.392235271030575, 47.40403814184115], [8.392177533257078, 47.40411978955705], [8.392135693147697, 47.40402896332049]]], "type": "Polygon"}, "id": "6607", "properties": {"FZ_AB": 2, "free_seats_max": 20, "free_seats_mean": 19, "name_from": "Dietikon, Oetwilerstrasse", "name_to": "Dietikon, Stelzenacker", "seat_occupancy_mean": 37, "stroke": "#fdae35", "weekday": true}, "type": "Feature"}], "type": "FeatureCollection"});
 
         
     
-    geo_json_2eecdad91c2dd899dd81f7e550e0c912.bindTooltip(
+    geo_json_25fed92b6d4ef3e4a237a241ad3a8333.bindTooltip(
     function(layer){
     let div = L.DomUtil.create('div');
     
@@ -208,22 +208,22 @@
     ,{"className": "foliumtooltip", "sticky": true});
                      
     
-            geo_json_2eecdad91c2dd899dd81f7e550e0c912.addTo(map_e9fbf2c7c7cd5b5673ec3a8323174656);
+            geo_json_25fed92b6d4ef3e4a237a241ad3a8333.addTo(map_bf817e0274fe15483720b108a8251a48);
         
     
-            var layer_control_97dbf802c7561a4d505ce770ee37d38c_layers = {
+            var layer_control_4ed66b6fb2da5b9826f98316015be841_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_7351ac5e64dff6cfec52410ba2347d4e,
+                    "cartodbdarkmatter" : tile_layer_b749caa1c0e79c09021c22b46ed77782,
                 },
                 overlays :  {
-                    "VBZ Data" : geo_json_2eecdad91c2dd899dd81f7e550e0c912,
+                    "VBZ Data" : geo_json_25fed92b6d4ef3e4a237a241ad3a8333,
                 },
             };
-            let layer_control_97dbf802c7561a4d505ce770ee37d38c = L.control.layers(
-                layer_control_97dbf802c7561a4d505ce770ee37d38c_layers.base_layers,
-                layer_control_97dbf802c7561a4d505ce770ee37d38c_layers.overlays,
+            let layer_control_4ed66b6fb2da5b9826f98316015be841 = L.control.layers(
+                layer_control_4ed66b6fb2da5b9826f98316015be841_layers.base_layers,
+                layer_control_4ed66b6fb2da5b9826f98316015be841_layers.overlays,
                 {"autoZIndex": true, "collapsed": true, "position": "topright"}
-            ).addTo(map_e9fbf2c7c7cd5b5673ec3a8323174656);
+            ).addTo(map_bf817e0274fe15483720b108a8251a48);
 
         
 </script>
