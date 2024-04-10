@@ -31,7 +31,7 @@ TODO Weijia
 We analyze the spatiotemporal distribution of passengers in Zurich's public transportation system.
 You can use the notebook [src/VBZ_Geospatial_Analysis.ipynb](./src/VBZ_Geospatial_Analysis.ipynb) to reproduce the results.
 
-This script creates **maps visualizing the traffic**. The maps are available as html in the [docs/static/maps](./docs/static/maps) folder.
+This script creates **maps visualizing the traffic**. The maps are available as html in the [docs/static/maps](./docs/static/maps) folder and on our website [sagerpascal.github.io/uzh-data-science-project](https://sagerpascal.github.io/uzh-data-science-project/).
 
 
 ## Analysis of the Interplay Between Diverse Factors
