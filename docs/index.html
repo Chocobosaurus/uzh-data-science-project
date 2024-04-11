@@ -102,19 +102,32 @@
 
 <!-- Teaser video-->
 <section class="hero teaser">
-    <div class="container is-max-desktop">
-        <div class="hero-body">
-            <video poster="" id="tree" autoplay controls muted loop height="100%">
-                <!-- Your video here -->
-                <source src="static/videos/traffic.mp4"
-                        type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">
-                Spatialtemporal analysis of the traffic in the city of Zurich. Green lines represent connections
-                with low seat occupancy, while red lines represent connections with high seat occupancy.
-            </h2>
+    <div class="hero-body">
+        <div class="container">
+            <div id="intro-carousel" class="carousel results-carousel" data-autoplay-speed="48000">
+                <div class="item">
+                    <video poster="" id="tree" autoplay controls muted loop height="60%">
+                        <!-- Your video here -->
+                        <source src="static/videos/traffic.mp4"
+                                type="video/mp4">
+                    </video>
+                    <h2 class="subtitle has-text-centered">
+                        Spatialtemporal analysis of the traffic connections in the city of Zurich. Green lines represent connections
+                        with low seat occupancy, while red lines represent connections with high seat occupancy.
+                    </h2>
+                </div>
+                 <div class="item">
+                    <video poster="" id="tree2" autoplay controls muted loop height="60%">
+                        <!-- Your video here -->
+                        <source src="static/videos/stops.mp4"
+                                type="video/mp4">
+                    </video>
+                    <h2 class="subtitle has-text-centered">
+                        Spatialtemporal analysis of the traffic stops in the city of Zurich. The heatmap visualizes how many passengers are boarding/alighting trams.
+                    </h2>
+                </div>
+            </div>
         </div>
-    </div>
 </section>
 <!-- End teaser video -->
 
@@ -151,18 +164,18 @@
             TODO: Please insert your plots here
             
             <div id="results-carousel" class="carousel results-carousel">
-                <div class="item" style="height: 1000px">
+                <div class="item">
                     <!-- Your image here -->
                     <img src="static/maps/map_08_7_True.png" alt="Traffic Visualization">
                     <h2 class="subtitle has-text-centered">
-                        Geospatial maps of the Zurich Traffic at various times (Examples shows traffic between 8:00-9:00 AM (weekday), interactive maps see below).
+                        Geospatial maps of vehicle occupation at various times (Examples shows traffic between 8:00-9:00 AM (weekday), interactive maps see below).
                     </h2>
                 </div>
-                <div class="item" style="height: 1000px">
+                <div class="item">
                     <!-- Your image here -->
-                    <img src="static/maps/map_08_7_True.png" alt="Traffic Visualization">
+                    <img src="static/maps/heatmap_08_7_True.png" alt="Traffic Visualization">
                     <h2 class="subtitle has-text-centered">
-                        Geospatial maps of the Zurich Traffic at various times (Examples shows traffic between 8:00-9:00 AM (weekday), interactive maps see below).
+                        Geospatial maps of passengers boarding/alighting at stops at various times (Examples shows heatmap for 8:00-9:00 AM (weekday), interactive maps see below).
                     </h2>
                 </div>
             </div>
@@ -180,8 +193,10 @@
                 <thead>
                 <tr>
                     <th>Time</th>
-                    <th>Weekday Map</th>
-                    <th>Weekend Map</th>
+                    <th>Weekday Vehicle Occupation</th>
+                    <th>Weekend Vehicle Occupation</th>
+                    <th>Weekday Passengers/Stop</th>
+                    <th>Weekend Passengers/Stop</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -189,121 +204,169 @@
                     <td>0.00am - 1.00am</td>
                     <td><a href="static/maps/map_01_0_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_25_0_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_01_0_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_25_0_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>1.00am - 2.00am</td>
                     <td><a href="static/maps/map_02_1_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_26_1_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_02_1_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_26_1_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>2.00am - 3.00am</td>
                     <td><a href="static/maps/map_03_2_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_27_2_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_03_2_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_27_2_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>3.00am - 4.00am</td>
                     <td><a href="static/maps/map_04_3_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_28_3_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_04_3_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_28_3_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>4.00am - 5.00am</td>
                     <td><a href="static/maps/map_05_4_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_29_4_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_05_4_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_29_4_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>5.00am - 6.00am</td>
                     <td><a href="static/maps/map_06_5_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_30_5_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_06_5_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_30_5_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>6.00am - 7.00am</td>
                     <td><a href="static/maps/map_07_6_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_31_6_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_07_6_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_31_6_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>7.00am - 8.00am</td>
                     <td><a href="static/maps/map_08_7_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_32_7_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_08_7_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_32_7_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>8.00am - 9.00am</td>
                     <td><a href="static/maps/map_09_8_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_33_8_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_09_8_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_33_8_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>9.00am - 10.00am</td>
                     <td><a href="static/maps/map_10_9_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_34_9_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_10_9_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_34_9_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>10.00am - 11.00am</td>
                     <td><a href="static/maps/map_11_10_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_35_10_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_11_10_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_35_10_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>11.00am - 12.00am</td>
                     <td><a href="static/maps/map_12_11_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_36_11_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_12_11_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_36_11_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>12.00pm - 1.00pm</td>
                     <td><a href="static/maps/map_13_12_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_37_12_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_13_12_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_37_12_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>1.00pm - 2.00pm</td>
                     <td><a href="static/maps/map_14_13_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_38_13_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_14_13_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_38_13_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>2.00pm - 3.00pm</td>
                     <td><a href="static/maps/map_15_14_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_39_14_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_15_14_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_39_14_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>3.00pm - 4.00pm</td>
                     <td><a href="static/maps/map_16_15_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_40_15_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_16_15_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_40_15_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>4.00pm - 5.00pm</td>
                     <td><a href="static/maps/map_17_16_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_41_16_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_17_16_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_41_16_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>5.00pm - 6.00pm</td>
                     <td><a href="static/maps/map_18_17_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_42_17_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_18_17_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_42_17_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>6.00pm - 7.00pm</td>
                     <td><a href="static/maps/map_19_18_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_43_18_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_19_18_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_43_18_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>7.00pm - 8.00pm</td>
                     <td><a href="static/maps/map_20_19_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_44_19_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_20_19_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_44_19_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>8.00pm - 9.00pm</td>
                     <td><a href="static/maps/map_21_20_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_45_20_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_21_20_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_45_20_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>9.00pm - 10.00pm</td>
                     <td><a href="static/maps/map_22_21_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_46_21_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_22_21_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_46_21_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>10.00pm - 11.00pm</td>
                     <td><a href="static/maps/map_23_22_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_47_22_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_23_22_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_47_22_False.html" target="_blank">Map</a></td>
                 </tr>
                 <tr>
                     <td>11.00pm - 0.00am</td>
                     <td><a href="static/maps/map_24_23_True.html" target="_blank">Map</a></td>
                     <td><a href="static/maps/map_48_23_False.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_24_23_True.html" target="_blank">Map</a></td>
+                    <td><a href="static/maps/heatmap_48_23_False.html" target="_blank">Map</a></td>
                 </tr>
             </table>
         </div>
