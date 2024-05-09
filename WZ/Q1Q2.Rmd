@@ -1,6 +1,6 @@
 ---
 title: "navigatingZHQ1Q2"
-author: "WZ"
+author: "Weijia Zhong"
 date: "2024-05-08"
 output: html_document
 ---
@@ -15,17 +15,17 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r Explorations on the datasets, echo=FALSE}
+```{r Explorations on the datasets}
 ## This is just to figure out what is what in the datset
 # Load the dependencies
 library(readxl)
-library(dplyr)
+library(dplyr, warn.conflicts = FALSE)
 library(stringr)
 library(tibble)
 library(ggplot2)
-library(plotly)
+library(plotly, warn.conflicts = FALSE)
 library(grid)
-library(gridExtra)
+library(gridExtra, warn.conflicts = FALSE)
 library(scales)
 
 
@@ -47,38 +47,38 @@ halte <- read.csv(file.path(directory_path, paste0(filename3, ".", csv)), sep=";
 gef <- read.csv(file.path(directory_path, paste0(filename4, ".", csv)), sep=";", header = T)
 punkte <- read.csv(file.path(directory_path, paste0(filename5, ".", csv)), sep=",", header = T)
 
-colnames(df)
-colnames(linie)
-colnames(tagtyp)
-colnames(halte)
-colnames(gef)
+#colnames(df)
+#colnames(linie)
+#colnames(tagtyp)
+#colnames(halte)
+#colnames(gef)
 
 # Examine a specific line 
-linie42 <- subset(df, df$Linien_Id == 42)
-sum(linie42$Tage_DTV != 0)
+# linie42 <- subset(df, df$Linien_Id == 42)
+# sum(linie42$Tage_DTV != 0)
 # no zeros in Tage_DTV
 
-sum(linie42[!duplicated(linie42$Tage_DTV), ]$Tage_DTV)
+# sum(linie42[!duplicated(linie42$Tage_DTV), ]$Tage_DTV)
 # For one specific line, Tage_DTV sums up to 365 or smaller (why?)
-nrow(linie42[!duplicated(linie42$Tagtyp_Id), ])
-nrow(linie42[!duplicated(linie42$Tage_DTV), ])
+# nrow(linie42[!duplicated(linie42$Tagtyp_Id), ])
+# nrow(linie42[!duplicated(linie42$Tage_DTV), ])
 # Binning in Tage_DTV is the same with Tagtyp_ID 
 ## -> A year of time is divided by type of days (sum to 365) then sampled for each day,
 ## then binned for each day type, showing the mean for this type of day
 
-sum(!duplicated(gef$Plan_Fahrt_Id))
+# sum(!duplicated(gef$Plan_Fahrt_Id))
 # no duplication in Plan_Fahrt_Id in gef
-sum(!duplicated(df$Plan_Fahrt_Id))
+# sum(!duplicated(df$Plan_Fahrt_Id))
 # all Plan_Fahrt_Id represented in df 
 
-sum(!duplicated(df$Haltestellen_Id))
-sum(!duplicated(halte$Haltestellen_Id))
+# sum(!duplicated(df$Haltestellen_Id))
+# sum(!duplicated(halte$Haltestellen_Id))
 # not all represented in df - inactive stops?
-inact <- anti_join(halte, df, by = "Haltestellen_Id")
+# inact <- anti_join(halte, df, by = "Haltestellen_Id")
 # looks like a bunch of garage (?)
 
-punkte <- subset(punkte, punkte$halt_punkt_ist_aktiv == "True")
-sum(!duplicated(punkte$halt_id))
+# acti_punkte <- subset(punkte, punkte$halt_punkt_ist_aktiv == "True")
+# sum(!duplicated(acti_punkte$halt_id))
 # roughly the same with the number of Haltstellen_Id
 # probably fine to just filter data by unique Haltestellen_Id
 ```

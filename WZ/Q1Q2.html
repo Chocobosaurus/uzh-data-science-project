@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="WZ" />
+<meta name="author" content="Weijia Zhong" />
 
 <meta name="date" content="2024-05-08" />
 
@@ -351,7 +351,7 @@ display: none;
 
 
 <h1 class="title toc-ignore">navigatingZHQ1Q2</h1>
-<h4 class="author">WZ</h4>
+<h4 class="author">Weijia Zhong</h4>
 <h4 class="date">2024-05-08</h4>
 
 </div>
@@ -366,52 +366,71 @@ on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http:
 generated that includes both content as well as the output of any
 embedded R code chunks within the document. You can embed an R code
 chunk like this:</p>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre><code>## 
-## Attaching package: &#39;plotly&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     last_plot</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter</code></pre>
-<pre><code>## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     layout</code></pre>
-<pre><code>## 
-## Attaching package: &#39;gridExtra&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     combine</code></pre>
-<pre><code>##  [1] &quot;Tagtyp_Id&quot;        &quot;Linien_Id&quot;        &quot;Linienname&quot;       &quot;Plan_Fahrt_Id&quot;   
-##  [5] &quot;Richtung&quot;         &quot;Sequenz&quot;          &quot;Haltestellen_Id&quot;  &quot;Nach_Hst_Id&quot;     
-##  [9] &quot;FZ_AB&quot;            &quot;Anzahl_Messungen&quot; &quot;Einsteiger&quot;       &quot;Aussteiger&quot;      
-## [13] &quot;Besetzung&quot;        &quot;Distanz&quot;          &quot;Tage_DTV&quot;         &quot;Tage_DWV&quot;        
-## [17] &quot;Tage_SA&quot;          &quot;Tage_SO&quot;          &quot;Nachtnetz&quot;        &quot;Tage_SA_N&quot;       
-## [21] &quot;Tage_SO_N&quot;        &quot;ID_Abschnitt&quot;</code></pre>
-<pre><code>## [1] &quot;Linien_Id&quot;                   &quot;Linienname&quot;                 
-## [3] &quot;VSYS&quot;                        &quot;Linienname_Fahrgastauskunft&quot;</code></pre>
-<pre><code>## [1] &quot;Tagtyp_Id&quot;  &quot;Tagtypname&quot; &quot;Bemerkung&quot;</code></pre>
-<pre><code>## [1] &quot;Haltestellen_Id&quot;      &quot;Haltestellennummer&quot;   &quot;Haltestellenkurzname&quot;
-## [4] &quot;Haltestellenlangname&quot;</code></pre>
-<pre><code>## [1] &quot;Plan_Fahrt_Id&quot; &quot;SITZPLAETZE&quot;   &quot;KAP_1m2&quot;       &quot;KAP_2m2&quot;      
-## [5] &quot;KAP_3m2&quot;       &quot;KAP_4m2&quot;</code></pre>
-<pre><code>## [1] 34770</code></pre>
-<pre><code>## [1] 365</code></pre>
-<pre><code>## [1] 9</code></pre>
-<pre><code>## [1] 9</code></pre>
-<pre><code>## [1] 64204</code></pre>
-<pre><code>## [1] 64204</code></pre>
-<pre><code>## [1] 779</code></pre>
-<pre><code>## [1] 797</code></pre>
-<pre><code>## [1] 771</code></pre>
+<pre class="r"><code>## This is just to figure out what is what in the datset
+# Load the dependencies
+library(readxl)
+library(dplyr, warn.conflicts = FALSE)
+library(stringr)
+library(tibble)
+library(ggplot2)
+library(plotly, warn.conflicts = FALSE)
+library(grid)
+library(gridExtra, warn.conflicts = FALSE)
+library(scales)
+
+
+directory_path &lt;- &quot;data/fahrgastzahlen_2023/&quot;
+
+filename0 &lt;- &quot;REISENDE&quot;
+filename1 &lt;- &quot;LINIE&quot;
+filename2 &lt;- &quot;TAGTYP&quot;
+filename3 &lt;- &quot;HALTESTELLEN&quot;
+filename4 &lt;- &quot;GEFAESSGROESSE&quot;
+filename5 &lt;- &quot;haltepunkt&quot;
+
+# Load data from 2023
+csv &lt;- &quot;csv&quot;
+df &lt;- read.csv(file.path(directory_path, paste0(filename0, &quot;.&quot;, csv)), sep=&quot;;&quot;, header = T)
+linie &lt;- read.csv(file.path(directory_path, paste0(filename1, &quot;.&quot;, csv)), sep=&quot;;&quot;, header = T)
+tagtyp &lt;- read.csv(file.path(directory_path, paste0(filename2, &quot;.&quot;, csv)), sep=&quot;;&quot;, header = T)
+halte &lt;- read.csv(file.path(directory_path, paste0(filename3, &quot;.&quot;, csv)), sep=&quot;;&quot;, header = T)
+gef &lt;- read.csv(file.path(directory_path, paste0(filename4, &quot;.&quot;, csv)), sep=&quot;;&quot;, header = T)
+punkte &lt;- read.csv(file.path(directory_path, paste0(filename5, &quot;.&quot;, csv)), sep=&quot;,&quot;, header = T)
+
+#colnames(df)
+#colnames(linie)
+#colnames(tagtyp)
+#colnames(halte)
+#colnames(gef)
+
+# Examine a specific line 
+# linie42 &lt;- subset(df, df$Linien_Id == 42)
+# sum(linie42$Tage_DTV != 0)
+# no zeros in Tage_DTV
+
+# sum(linie42[!duplicated(linie42$Tage_DTV), ]$Tage_DTV)
+# For one specific line, Tage_DTV sums up to 365 or smaller (why?)
+# nrow(linie42[!duplicated(linie42$Tagtyp_Id), ])
+# nrow(linie42[!duplicated(linie42$Tage_DTV), ])
+# Binning in Tage_DTV is the same with Tagtyp_ID 
+## -&gt; A year of time is divided by type of days (sum to 365) then sampled for each day,
+## then binned for each day type, showing the mean for this type of day
+
+# sum(!duplicated(gef$Plan_Fahrt_Id))
+# no duplication in Plan_Fahrt_Id in gef
+# sum(!duplicated(df$Plan_Fahrt_Id))
+# all Plan_Fahrt_Id represented in df 
+
+# sum(!duplicated(df$Haltestellen_Id))
+# sum(!duplicated(halte$Haltestellen_Id))
+# not all represented in df - inactive stops?
+# inact &lt;- anti_join(halte, df, by = &quot;Haltestellen_Id&quot;)
+# looks like a bunch of garage (?)
+
+# acti_punkte &lt;- subset(punkte, punkte$halt_punkt_ist_aktiv == &quot;True&quot;)
+# sum(!duplicated(acti_punkte$halt_id))
+# roughly the same with the number of Haltstellen_Id
+# probably fine to just filter data by unique Haltestellen_Id</code></pre>
 <pre class="r"><code># to do: load data sets of the past years. Sum on $Distanz after filtering for unique haltestellen_ID 
 wd &lt;- (&quot;data&quot;)
 subfolders &lt;- list.dirs(wd, full.names = TRUE)
