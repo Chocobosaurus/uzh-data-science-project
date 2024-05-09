@@ -1,0 +1,322 @@
+---
+title: "navigatingZHQ1Q2"
+author: "WZ"
+date: "2024-05-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r Explorations on the datasets}
+## This is just to figure out what is what in the datset
+# Load the dependencies
+library(readxl)
+library(dplyr)
+library(stringr)
+library(tibble)
+library(ggplot2)
+library(plotly)
+library(grid)
+library(gridExtra)
+library(scales)
+
+
+directory_path <- "/Users/UZH-wezhon/Desktop/Courses/Introduction_DataScience_2024/projects/fahrgastzahlen_2023/"
+
+filename0 <- "REISENDE"
+filename1 <- "LINIE"
+filename2 <- "TAGTYP"
+filename3 <- "HALTESTELLEN"
+filename4 <- "GEFAESSGROESSE"
+filename5 <- "haltepunkt"
+
+# Load data from 2023
+csv <- "csv"
+df <- read.csv(file.path(directory_path, paste0(filename0, ".", csv)), sep=";", header = T)
+linie <- read.csv(file.path(directory_path, paste0(filename1, ".", csv)), sep=";", header = T)
+tagtyp <- read.csv(file.path(directory_path, paste0(filename2, ".", csv)), sep=";", header = T)
+halte <- read.csv(file.path(directory_path, paste0(filename3, ".", csv)), sep=";", header = T)
+gef <- read.csv(file.path(directory_path, paste0(filename4, ".", csv)), sep=";", header = T)
+punkte <- read.csv(file.path(directory_path, paste0(filename5, ".", csv)), sep=",", header = T)
+
+colnames(df)
+colnames(linie)
+colnames(tagtyp)
+colnames(halte)
+colnames(gef)
+
+# Examine a specific line 
+linie42 <- subset(df, df$Linien_Id == 42)
+sum(linie42$Tage_DTV != 0)
+# no zeros in Tage_DTV
+
+sum(linie42[!duplicated(linie42$Tage_DTV), ]$Tage_DTV)
+# For one specific line, Tage_DTV sums up to 365 or smaller (why?)
+nrow(linie42[!duplicated(linie42$Tagtyp_Id), ])
+nrow(linie42[!duplicated(linie42$Tage_DTV), ])
+# Binning in Tage_DTV is the same with Tagtyp_ID 
+## -> A year of time is divided by type of days (sum to 365) then sampled for each day,
+## then binned for each day type, showing the mean for this type of day
+
+sum(!duplicated(gef$Plan_Fahrt_Id))
+# no duplication in Plan_Fahrt_Id in gef
+sum(!duplicated(df$Plan_Fahrt_Id))
+# all Plan_Fahrt_Id represented in df 
+
+sum(!duplicated(df$Haltestellen_Id))
+sum(!duplicated(halte$Haltestellen_Id))
+# not all represented in df - inactive stops?
+inact <- anti_join(halte, df, by = "Haltestellen_Id")
+# looks like a bunch of garage (?)
+
+punkte <- subset(punkte, punkte$halt_punkt_ist_aktiv == "True")
+sum(!duplicated(punkte$halt_id))
+# roughly the same with the number of Haltstellen_Id
+# probably fine to just filter data by unique Haltestellen_Id
+```
+
+
+```{r Q1.1:Spatial coverage of VBZ system across the years}
+# to do: load data sets of the past years. Sum on $Distanz after filtering for unique haltestellen_ID 
+setwd("/Users/UZH-wezhon/Desktop/Courses/Introduction_DataScience_2024/projects/")
+subfolders <- list.dirs(full.names = TRUE)
+subfolders <- grep("fahrgastzahlen_20[0-9]{2}", subfolders, value = TRUE)
+
+dfs <- list()
+years <- sprintf("20%02d", 14:23)
+
+# Loop through each subfolder for data of a year from 2014-2023, load "REISENDE"
+for (subfolder in subfolders) {
+  csv_files <- list.files(path = subfolder, pattern = "\\.csv$", full.names = TRUE)
+  
+  if (length(csv_files) > 0) {
+    reisende_file <- grep("REISENDE", csv_files, value = TRUE)
+    if (length(reisende_file) > 0) {
+      dfs[[subfolder]] <- read.csv(reisende_file, sep=";", header = T)
+    }
+  }
+}
+
+
+# Filter for unique $Haltestellen_Id, then sum up $Distanz, then make barplot
+distanz <- function(dfs) {
+  filter_and_summarize <- function(data) {
+    unique_data <- data[!duplicated(data$Haltestellen_Id), ]
+    total_distance <- if ("Distanz" %in% colnames(unique_data)) {
+      unique_data %>%
+        summarise(total_distance = sum(Distanz, na.rm = TRUE)) %>%
+        pull(total_distance)
+    } else {
+      NA
+    }
+    return(total_distance)
+  }
+  
+  summed_distances <- sapply(dfs, filter_and_summarize)
+  summed_distances_df <- data.frame(Years = years, Total_Distance = unlist(summed_distances)/10^3)
+  
+  ggplot(summed_distances_df, aes(x = Years, y = Total_Distance)) +
+    geom_bar(stat = "identity", fill = "skyblue", color = "grey") +
+    labs(title = "Total Distance Coverage by Years", x = "Years", y = "Total Distance (km)")
+}
+
+
+plot <- distanz(dfs)
+print(plot)
+```
+
+```{r Q1.2: Passenger volume change over the years}
+
+# einsteiger * Tage_DTV as passenger volumn
+
+passvol <- function(dfs) {
+  multiply <- function(df) {
+    total_vol <- df %>%
+      mutate(product = Einsteiger * Tage_DTV) %>%
+      summarise(total_vol = sum(product, na.rm = TRUE)) %>%
+      pull(total_vol)
+    return(total_vol)
+  }
+  
+  total_volumn <- sapply(dfs, multiply)
+  total_volumn_df <- data.frame(Years = years, Total_Volume = unlist(total_volumn)/10^6)
+  
+  ggplot(total_volumn_df, aes(x = Years, y = Total_Volume)) +
+    geom_bar(stat = "identity", fill = "#FFD700", color = "grey") +
+    labs(title = "Total Volume by Years", x = "Years", y = "Total Volume (mio)")
+}
+
+plot <- passvol(dfs)
+print(plot)
+
+
+
+```
+
+```{r Q1+: Change in traffic subcategories (tram, bus, cable car,…)}
+
+# Merge with LINIE.csv
+merline <- function(data) {
+  merline_data <- merge(data, linie, by = "Linien_Id")
+  return(merline_data)
+}
+
+merline_dfs <- lapply(dfs, merline)
+
+# Verkehrssystem: T: Tram; TR: Trolleybus; B: Bus; SB:Seilbahn; FB: Forchbahn; N: Nachtbus.
+linie[!duplicated(linie$VSYS), ]$VSYS
+
+# split dataset by vehicle type
+tram <- function(data) {
+  tram_data <- data[data$VSYS == "T", ]
+  return(tram_data)
+}
+
+trolleybus <- function(data) {
+  tr_data <- data[data$VSYS == "TR", ]
+  return(tr_data)
+}
+
+bus <- function(data) {
+  bus_data <- data[grepl("^B[A-Z]$", data$VSYS), ]
+  return(bus_data)
+}
+
+seilbahn <- function(data) {
+  sb_data <- data[data$VSYS == "SB", ]
+  return(sb_data)
+}
+
+forchbahn <- function(data) {
+  fb_data <- data[data$VSYS == "FB", ]
+  return(fb_data)
+}
+
+nachtbus <- function(data) {
+  n_data <- data[data$VSYS == "N", ]
+  return(n_data)
+}
+
+tram_dfs <- lapply(merline_dfs, tram)
+trolley_dfs <- lapply(merline_dfs, trolleybus)
+bus_dfs <- lapply(merline_dfs, bus)
+seilbahn_dfs <- lapply(merline_dfs, seilbahn)
+forchbahn_dfs <- lapply(merline_dfs, forchbahn)
+nacht_dfs <- lapply(merline_dfs, nachtbus)
+```
+
+```{r Q1+ plots: Change in Tramways}
+distanz <- function(dfs) {
+  filter_and_summarize <- function(data) {
+    unique_data <- data[!duplicated(data$Haltestellen_Id), ]
+    total_distance <- if ("Distanz" %in% colnames(unique_data)) {
+      unique_data %>%
+        summarise(total_distance = sum(Distanz, na.rm = TRUE)) %>%
+        pull(total_distance)
+    } else {
+      NA
+    }
+    return(total_distance)
+  }
+  
+  summed_distances <- sapply(dfs, filter_and_summarize)
+  summed_distances_df <- data.frame(Years = years, Total_Distance = unlist(summed_distances)/10^3)
+  
+  ggplot(summed_distances_df, aes(x = Years, y = Total_Distance)) +
+    geom_bar(stat = "identity", fill = "skyblue", color = "grey") +
+    labs(title = "Total Distance Coverage by Years", x = "Years", y = "Total Distance (km)") +
+         ylim(0, 250) #fix the ylab to be the same for comparison
+}
+
+passvol <- function(dfs) {
+  multiply <- function(df) {
+    total_vol <- df %>%
+      mutate(product = Einsteiger * Tage_DTV) %>%
+      summarise(total_vol = sum(product, na.rm = TRUE)) %>%
+      pull(total_vol)
+    return(total_vol)
+  }
+  
+  total_volumn <- sapply(dfs, multiply)
+  total_volumn_df <- data.frame(Years = years, Total_Volume = unlist(total_volumn)/10^6)
+  
+  ggplot(total_volumn_df, aes(x = Years, y = Total_Volume)) +
+    geom_bar(stat = "identity", fill = "#FFD700", color = "grey") +
+    labs(title = "Total Volume by Years", x = "Years", y = "Total Volume (mio)") +
+         ylim(0, 250) #fix the ylab to be the same for comparison
+}
+
+fig1 <- distanz(tram_dfs)
+fig2 <- passvol(tram_dfs)
+grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Tramways", gp = gpar(fontsize = 20)))
+```
+```{r Q1+ plots: Change in Bus}
+fig1 <- distanz(bus_dfs)
+fig2 <- passvol(bus_dfs)
+grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Bus", gp = gpar(fontsize = 20)))
+```
+```{r Q1+ plots: Change in Trolleybus}
+fig1 <- distanz(trolley_dfs)
+fig2 <- passvol(trolley_dfs)
+grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Trolleybus", gp = gpar(fontsize = 20)))
+```
+```{r Q1+ plots: Change in Cablecar (Seilbahn)}
+fig1 <- distanz(seilbahn_dfs)
+fig2 <- passvol(seilbahn_dfs)
+grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Cablecar (Seilbahn)", gp = gpar(fontsize = 20)))
+```
+```{r Q1+ plots: Change in Forchbahn}
+fig1 <- distanz(forchbahn_dfs)
+fig2 <- passvol(forchbahn_dfs)
+grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Forchbahn", gp = gpar(fontsize = 20)))
+```
+```{r Q1+ plots: Change in Night network}
+fig1 <- distanz(nacht_dfs)
+fig2 <- passvol(nacht_dfs)
+grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Night network", gp = gpar(fontsize = 20)))
+```
+
+```{r Q2: Utilization of the intrastructure by passenger/km}
+# to do: by years, compute passenger/km of public transport coverage
+
+compute_pkm <- function(df) {
+  df <- df %>%
+    mutate(product = Besetzung * Distanz * Tage_DTV)
+  df %>% summarise(pkm = sum(product, na.rm = TRUE))
+}
+
+pkm <- sapply(dfs, compute_pkm)
+
+pkm_df <- data.frame(Years = years, pass_km = unlist(pkm)/10^6)
+
+p <- ggplot(pkm_df, aes(x = Years, y = pass_km)) +
+  geom_bar(stat = "identity", fill = "#F996CA", color = "grey") +
+  labs(title = "Utilization of public transportation", x = "Years", y = "Passenger (k)-km")
+
+p + scale_y_continuous(labels = label_comma())
+```
+
+```{r Q2+: Utilization of the intrastructure by passenger/km, trams only}
+# to compare with statistica data as a proxy to metro
+pkm <- sapply(tram_dfs, compute_pkm)
+
+pkm_df <- data.frame(Years = years, pass_km = unlist(pkm)/10^6)
+
+p <- ggplot(pkm_df, aes(x = Years, y = pass_km)) +
+  geom_bar(stat = "identity", fill = "#F996CA", color = "grey") +
+  labs(title = "Utilization of public transportation", x = "Years", y = "Passenger (k)-km")
+
+p + scale_y_continuous(labels = label_comma())
+```
+
+
+
+
