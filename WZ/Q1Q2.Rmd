@@ -1,5 +1,5 @@
 ---
-title: "navigatingZHQ1Q2"
+title: "NavigatingZH_Data_Science_Intro_UZH_Q1Q2"
 author: "Weijia Zhong"
 date: "2024-05-08"
 output: github_document
@@ -56,7 +56,7 @@ colnames(gef)
 
 # Examine a specific line 
 linie42 <- subset(df, df$Linien_Id == 42)
-sum(linie42$Tage_DTV != 0)
+sum(linie42$Tage_DTV == 0)
 # no zeros in Tage_DTV
 
 sum(linie42[!duplicated(linie42$Tage_DTV), ]$Tage_DTV)
@@ -131,7 +131,7 @@ distanz <- function(dfs) {
 
 
 plot <- distanz(dfs)
-ggsave("results/Q1_1.png", width = 8, height = 6, dpi = 600)
+# ggsave("results/Q1_1.png", width = 8, height = 6, dpi = 600)
 print(plot)
 ```
 
@@ -158,7 +158,7 @@ passvol <- function(dfs) {
 }
 
 plot <- passvol(dfs)
-ggsave("results/Q1_2.png", width = 8, height = 6, dpi = 600)
+# ggsave("results/Q1_2.png", width = 8, height = 6, dpi = 600)
 print(plot)
 
 
@@ -267,7 +267,7 @@ passvol <- function(dfs) {
 fig1 <- distanz(tram_dfs)
 fig2 <- passvol(tram_dfs)
 fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Tramways", gp = gpar(fontsize = 20)))
-ggsave(file = "results/Q1tram.png", fig, width = 8, height = 5, dpi = 600)
+# ggsave(file = "results/Q1tram.png", fig, width = 8, height = 5, dpi = 600)
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Tramways", gp = gpar(fontsize = 20)))
 ```
 
@@ -276,7 +276,7 @@ grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Tramways", gp = gpar(
 fig1 <- distanz(bus_dfs)
 fig2 <- passvol(bus_dfs)
 fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Buses", gp = gpar(fontsize = 20)))
-ggsave(file = "results/Q1bus.png", fig, width = 8, height = 5, dpi = 600)
+# ggsave(file = "results/Q1bus.png", fig, width = 8, height = 5, dpi = 600)
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Buses", gp = gpar(fontsize = 20)))
 ```
 
@@ -285,7 +285,7 @@ grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Buses", gp = gpar(fon
 fig1 <- distanz(trolley_dfs)
 fig2 <- passvol(trolley_dfs)
 fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Trolleybus", gp = gpar(fontsize = 20)))
-ggsave(file = "results/Q1trolleybus.png", fig, width = 8, height = 5, dpi = 600)
+# ggsave(file = "results/Q1trolleybus.png", fig, width = 8, height = 5, dpi = 600)
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Trolleybus", gp = gpar(fontsize = 20)))
 ```
 
@@ -295,7 +295,7 @@ fig1 <- distanz(seilbahn_dfs)
 fig2 <- passvol(seilbahn_dfs)
 fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Cablecar (Seilbahn)", 
                                                       gp = gpar(fontsize = 20)))
-ggsave(file = "results/Q1seilbahn.png", fig, width = 8, height = 5, dpi = 600)
+# ggsave(file = "results/Q1seilbahn.png", fig, width = 8, height = 5, dpi = 600)
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Cablecar (Seilbahn)", gp = gpar(fontsize = 20)))
 ```
 
@@ -304,7 +304,7 @@ grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Cablecar (Seilbahn)",
 fig1 <- distanz(forchbahn_dfs)
 fig2 <- passvol(forchbahn_dfs)
 fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Forchbahn", gp = gpar(fontsize = 20)))
-ggsave(file = "results/Q1forchbahn.png", fig, width = 8, height = 5, dpi = 600)
+# ggsave(file = "results/Q1forchbahn.png", fig, width = 8, height = 5, dpi = 600)
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Forchbahn", gp = gpar(fontsize = 20)))
 ```
 
@@ -313,7 +313,7 @@ grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Forchbahn", gp = gpar
 fig1 <- distanz(nacht_dfs)
 fig2 <- passvol(nacht_dfs)
 fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Night Network", gp = gpar(fontsize = 20)))
-ggsave(file = "results/Q1nacht.png", fig, width = 8, height = 5, dpi = 600)
+# ggsave(file = "results/Q1nacht.png", fig, width = 8, height = 5, dpi = 600)
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Night Network", gp = gpar(fontsize = 20)))
 ```
 
@@ -336,7 +336,7 @@ p <- ggplot(pkm_df, aes(x = Years, y = pass_km)) +
   labs(title = "Utilization of Public Transportation", x = "Years", y = "Passenger (k)-km") +
   scale_y_continuous(labels = label_comma())
 
-ggsave("results/Q2.png", width = 8, height = 6, dpi = 600)
+# ggsave("results/Q2.png", width = 8, height = 6, dpi = 600)
 print(p)
 ```
 
@@ -351,11 +351,11 @@ p <- ggplot(pkm_df, aes(x = Years, y = pass_km)) +
   labs(title = "Utilization of Tramways", x = "Years", y = "Passenger (k)-km") +
   scale_y_continuous(labels = label_comma())
   
-ggsave("results/Q2tram.png", width = 8, height = 6, dpi = 600)
+# ggsave("results/Q2tram.png", width = 8, height = 6, dpi = 600)
 print(p)
   
 ```
-```{r Q1 ++: Heatmaps of traffic volumn by hours for each vehivle type}
+```{r Q1++: Heatmaps of traffic volumn by hours for each vehivle type}
 ## Do we normalize? Traffic volume differs a lot i.e. Trolleybus vs Bus
 # onlt the first 2 elements in $FZ_AB is enough for sorting into per hour of 24h
 unique(substr(df$FZ_AB, 1, 2))
@@ -407,7 +407,7 @@ p1 <- ggplot(rvph_df, aes(variable, vehicle_types, fill= value)) +
   xlab("Hours of day") +
   scale_fill_viridis(option = "magma", discrete=FALSE)
 
-ggsave("results/heatmap_noscaling.png", width = 10, height = 8, dpi = 600)
+# ggsave("results/heatmap_noscaling.png", width = 10, height = 8, dpi = 600)
 print(p1)
 
 scale_255 <- function(x) {
@@ -429,7 +429,7 @@ p2 <- ggplot(scaled_rvph_df, aes(Var2, Var1, fill= value)) +
   xlab("Hours of day") +
   scale_fill_viridis(option = "magma", discrete=FALSE)
 
-ggsave("results/heatmap_scaled.png", width = 10, height = 8, dpi = 600)
+# ggsave("results/heatmap_scaled.png", width = 10, height = 8, dpi = 600)
 print(p2)
 ```
 
