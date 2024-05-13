@@ -53,6 +53,7 @@ colnames(linie)
 colnames(tagtyp)
 colnames(halte)
 colnames(gef)
+colnames(punkte)
 
 # Examine a specific line 
 linie42 <- subset(df, df$Linien_Id == 42)
@@ -128,7 +129,7 @@ distanz <- function(dfs) {
   
   ggplot(summed_distances_df, aes(x = Years, y = Total_Distance)) +
     geom_bar(stat = "identity", fill = "skyblue", color = "grey") +
-    labs(title = "Total Distance Coverage by Years", x = "Years", y = "Total Distance (km)")
+    labs(title = "Total Distance Coverage by Years (Nachtnetz excluded)", x = "Years", y = "Total Distance (km)")
 }
 
 
@@ -484,6 +485,7 @@ vehicle_types <- c("Tram", "Bus", "Trolleybus", "Seilbahn", "Forchbahn", "Nachtn
 res_vol_per_hour_formelt <- cbind(res_vol_per_hour, vehicle_types)
 
 rvph_df <- melt(res_vol_per_hour_formelt, id = "vehicle_types")
+
 # Without scaling by row
 p1 <- ggplot(rvph_df, aes(variable, vehicle_types, fill= value)) + 
   geom_tile() +
@@ -530,7 +532,28 @@ p2 <- ggplot(scaled_rvph_df, aes(Var2, Var1, fill= value)) +
 print(p2)
 ```
 
-```{r Q1 +++: Which are the stops/routes that has changed?}
+```{r Q1 +++: Which are the stops/routes that has been changed?}
+## Low priority
+
+```
+
+```{r Q5: Predict seat availability}
+## Variables to merge:
+# VSYS (categorical)
+# Tagtyp_ID (categorical) - no need to merge
+# GPS- first merge punkte to halte_2 by halt_id, then to df by ""
+# Normalize -mean/sd
+
+options(scipen = 999) #Stop showing in scientific notation. To reverse, set param to 0.
+
+# Existing datasets:
+halte_2 <- read.csv("data/fahrgastzahlen_2023/haltestelle.csv", sep=",")
+colnames(df)
+colnames(linie)
+colnames(tagtyp)
+colnames(halte)
+colnames(gef)
+colnames(punkte)
 
 ```
 
