@@ -18,8 +18,9 @@ We provide snapshots of the data in the `data/` folder that allow reproducing th
 
 ## Development of Zurich’s Public Transportation System Over Time
 
-
-TODO Weijia
+We analyze the development of Zurich's Public Transportation system across year 2014-2023, by characterizing the spatial coverage and 
+passenger volume in Zurich's public transportation system.
+You can use the notebook [src/VBZ_Geospatial_Analysis.ipynb](./src/VBZ_Geospatial_Analysis.ipynb) to reproduce the results.
 
 
 ## Utilization Intensity of Zurich’s Public Transportation Infrastructure
