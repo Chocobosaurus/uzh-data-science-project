@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Academic Project Page</title>
+    <title>Navigating Zurich</title>
     <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
           rel="stylesheet">
@@ -91,6 +91,16 @@
                   </a>
                 </span>
 
+                    <span class="link-block">
+                      <a href="static/pdfs/Presentation-UZH-Data-Science-Project.pdf" target="_blank"
+                         class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Presentation</span>
+                    </a>
+                  </span>
+
                 </div>
             </div>
         </div>
@@ -139,12 +149,7 @@
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante
-                        aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec
-                        accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus
-                        euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac
-                        purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo.
-                        Pellentesque auctor leo vitae sagittis suscipit.
+                    Public transportation systems play a crucial role in urban mobility, and analyzing their dynamics is essential for optimizing efficiency and planning for future needs. In this study, we employ advanced data analytics techniques to delve into the public transportation system of Zurich, Switzerland. Leveraging publicly available CSV datasets released by the Canton of Zurich, we explore the temporal evolution of transportation metrics, including spatial coverage, passenger volume, and utilization intensity. Additionally, we investigate the spatiotemporal distribution of passengers relative to vehicle capacity, examining factors such as spatial location, weekday patterns, and academic calendar influences. Our analysis is guided by fundamental research questions encompassing historical trends, comparative analyses with other global cities, and predictive modeling of seat availability. While our findings offer valuable insights into Zurich's transportation landscape, we acknowledge the inherent limitations stemming from dynamic factors such as evolving traffic schedules and political decisions. Nonetheless, our study provides a comprehensive framework for understanding and potentially enhancing public transportation systems in Zurich and beyond.
                     </p>
                 </div>
             </div>
@@ -166,16 +171,22 @@
             <div id="results-carousel" class="carousel results-carousel">
                 <div class="item">
                     <!-- Your image here -->
-                    <img src="static/maps/map_08_7_True.png" alt="Traffic Visualization">
+                    <img src="static/maps/map_08_7_True.png" alt="Traffic Visualization" style="max-height:600px;display: block; margin: auto;">
                     <h2 class="subtitle has-text-centered">
                         Geospatial maps of vehicle occupation at various times (Examples shows traffic between 8:00-9:00 AM (weekday), interactive maps see below).
                     </h2>
                 </div>
                 <div class="item">
                     <!-- Your image here -->
-                    <img src="static/maps/heatmap_08_7_True.png" alt="Traffic Visualization">
+                    <img src="static/maps/heatmap_08_7_True.png" alt="Traffic Visualization" style="max-height:600px;display: block; margin: auto;">
                     <h2 class="subtitle has-text-centered">
                         Geospatial maps of passengers boarding/alighting at stops at various times (Examples shows heatmap for 8:00-9:00 AM (weekday), interactive maps see below).
+                    </h2>
+                </div>
+                <div class="item">
+                    <img src="static/images/occupacy_prediction_error_per_time.png" alt="Occupancy Prediction Error" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The error (average number of passengers) when prediction the vehicle occupancy at different times of the day.
                     </h2>
                 </div>
             </div>
@@ -374,53 +385,72 @@
 </section>
 
 
-<!-- Video carousel -->
+
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title is-3">Another Carousel</h2>
+            <h2 class="title is-3">Predicting Seat Occupancy</h2>
+
+            <p>
+                We use various techniques to predict the seat occupancy of vehicles in Zurich.
+                We train the model on data from 2022 and test it on data from 2023 to estimate how well the model generalizes for future predictions.
+                As a baseline, we use the median seat occupation.
+                We first show, that simple models such as linear regression and random forest regressors do not work well and perform similar than the baseline.
+                To use support vector classifiers, we first reduce the dimensionality of the data using UMAP as otherwise, given our hardware, training is not feasible.
+                We then show that the support vector classifier performs better than the baseline and the other models.
+                Finally, we show that deep networks perform even better than the support vector classifier.
+                For more details on the implementation, please have a look at the readme file and the notebooks in the code repository.
+            </p>
+
+            <p>
+                Furthermore, we conduct various analyses to understand the model's behavior and the data.
+                We show that adding geospatial data, that we obtain from external sources, drastically improves the model's performance.
+            </p>
+
             <div id="results-carousel2" class="carousel results-carousel">
-                <div class="item item-video1">
-                    <video poster="" id="video1" autoplay controls muted loop height="100%">
-                        <!-- Your video file here -->
-                        <source src="static/videos/carousel1.mp4"
-                                type="video/mp4">
-                    </video>
+                <div class="item">
+                    <img src="static/images/fzab_error.png" alt="Error vs. Departure Time" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The average error (number of persons) when predicting the vehicle occupancy at different times of the day.
+                    </h2>
                 </div>
-                <div class="item item-video2">
-                    <video poster="" id="video2" autoplay controls muted loop height="100%">
-                        <!-- Your video file here -->
-                        <source src="static/videos/carousel2.mp4"
-                                type="video/mp4">
-                    </video>
+                <div class="item">
+                    <img src="static/images/fzab_error_box.png" alt="Error vs. Departure Time" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        Visualization of some outliers that we cannot estimate well when predicting the vehicle occupancy at different times of the day.
+                    </h2>
                 </div>
-                <div class="item item-video3">
-                    <video poster="" id="video3" autoplay controls muted loop height="100%">\
-                        <!-- Your video file here -->
-                        <source src="static/videos/carousel3.mp4"
-                                type="video/mp4">
-                    </video>
+                <div class="item">
+                    <img src="static/images/tagtype_error.png" alt="Error vs. Daytypes" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The average error (number of persons) when predicting the vehicle occupancy at different types of days.
+                    </h2>
+                </div>
+                <div class="item is-justify-content-center">
+                    <img src="static/images/mae_with-without_coordinates.png" alt="MAE with/without geospatial data" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The improvement of the mean absolute error when adding geospatial data to the model.
+                    </h2>
+                </div>
+                <div class="item is-centered">
+                    <img src="static/images/mae_over_epochs.png" alt="MAE over epochs" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The improvement of the mean absolute error over the epochs when training the deep network.
+                    </h2>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End video carousel -->
 
 
-<!-- Paper poster -->
-<section class="hero is-small is-light">
+<section class="hero is-small  is-light">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title">Poster</h2>
-
-            <iframe src="static/pdfs/sample.pdf" width="100%" height="550">
-            </iframe>
-
+            <h2 class="title is-3">TODO: Add some general findings here</h2>
         </div>
     </div>
 </section>
-<!--End paper poster -->
 
 
 <!--BibTex citation -->

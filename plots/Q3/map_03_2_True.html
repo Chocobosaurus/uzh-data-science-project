@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4eccf0d932762b7148593d8fe453d712 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            background-color: white; color: #333333; font-family: arial; font-size: 12px; padding: 10px;
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    <h1 style="position:absolute;z-index:100000;left:20px;color:#bbb; bottom:20px" >Time: 2am-3am (Weekday)</h1>
+    
+            <div class="folium-map" id="map_4eccf0d932762b7148593d8fe453d712" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4eccf0d932762b7148593d8fe453d712 = L.map(
+                "map_4eccf0d932762b7148593d8fe453d712",
+                {
+                    center: [47.38, 8.55],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fa87df16dc2393f8a40a9e00f650a85e = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_fa87df16dc2393f8a40a9e00f650a85e.addTo(map_4eccf0d932762b7148593d8fe453d712);
+        
+    
+            var marker_b76d18132c9c6aaa4db3def79b57c714 = L.marker(
+                [47.376009572041205, 8.548333],
+                {"name": "Locations"}
+            ).addTo(map_4eccf0d932762b7148593d8fe453d712);
+        
+    
+            marker_b76d18132c9c6aaa4db3def79b57c714.bindTooltip(
+                `<div>
+                     Zurich University
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e9fc56ffc2de78381e0e06941c680cc1 = L.marker(
+                [47.398244842674096, 8.549042321653372],
+                {"name": "Locations"}
+            ).addTo(map_4eccf0d932762b7148593d8fe453d712);
+        
+    
+            marker_e9fc56ffc2de78381e0e06941c680cc1.bindTooltip(
+                `<div>
+                     Irchel Campus
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f3a953178255f8d6abc2c5211311d5b6 = L.marker(
+                [47.37801581583341, 8.540456430522084],
+                {"name": "Locations"}
+            ).addTo(map_4eccf0d932762b7148593d8fe453d712);
+        
+    
+            marker_f3a953178255f8d6abc2c5211311d5b6.bindTooltip(
+                `<div>
+                     Main Station
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+        function geo_json_117760cf534f165327d4800348eb7936_styler(feature) {
+            switch(feature.id) {
+                case "6458": case "6459": 
+                    return {"color": "#dfdf37", "fillColor": "#dfdf37", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
+                case "6460": case "6461": case "6462": case "6463": 
+                    return {"color": "#e1dd37", "fillColor": "#e1dd37", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
+                case "6464": case "6465": 
+                    return {"color": "#e3db38", "fillColor": "#e3db38", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
+                case "6466": case "6467": 
+                    return {"color": "#eecf3a", "fillColor": "#eecf3a", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
+                case "6560": case "6561": 
+                    return {"color": "#faba39", "fillColor": "#faba39", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
+                case "6562": case "6563": 
+                    return {"color": "#f5c53a", "fillColor": "#f5c53a", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
+                case "6564": case "6565": 
+                    return {"color": "#efcd3a", "fillColor": "#efcd3a", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
+                default:
+                    return {"color": "#fdae35", "fillColor": "#fdae35", "fillOpacity": 1.0, "opacity": 0.9, "weight": 3.0};
+            }
+        }
+        function geo_json_117760cf534f165327d4800348eb7936_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"fillOpacity": 1.0, "opacity": 1.0, "weight": 4.0};
+            }
+        }
+
+        function geo_json_117760cf534f165327d4800348eb7936_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_117760cf534f165327d4800348eb7936.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_117760cf534f165327d4800348eb7936_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_117760cf534f165327d4800348eb7936 = L.geoJson(null, {
+                onEachFeature: geo_json_117760cf534f165327d4800348eb7936_onEachFeature,
+            
+                style: geo_json_117760cf534f165327d4800348eb7936_styler,
+        });
+
+        function geo_json_117760cf534f165327d4800348eb7936_add (data) {
+            geo_json_117760cf534f165327d4800348eb7936
+                .addData(data);
+        }
+            geo_json_117760cf534f165327d4800348eb7936_add({"features": [{"geometry": {"coordinates": [[8.380094288108255, 47.39429235534528], [8.376338711891744, 47.39412764465472]], "type": "LineString"}, "id": "6458", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Kindhausen AG, Eichholz", "name_to": "Kindhausen AG", "seat_occupancy_mean": 19, "stroke": "#dfdf37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.376338711891744, 47.39412764465472], [8.37642742203822, 47.394081487207735], [8.376423040486646, 47.39418139117165], [8.376338711891744, 47.39412764465472]]], "type": "Polygon"}, "id": "6459", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Kindhausen AG, Eichholz", "name_to": "Kindhausen AG", "seat_occupancy_mean": 19, "stroke": "#dfdf37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.384945600628805, 47.38976536436019], [8.380606399371194, 47.39409363563982]], "type": "LineString"}, "id": "6460", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Vorb\u00fchl", "name_to": "Kindhausen AG, Eichholz", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.380606399371194, 47.39409363563982], [8.380632403061565, 47.39399707577193], [8.38070302451496, 47.39406787556233], [8.380606399371194, 47.39409363563982]]], "type": "Polygon"}, "id": "6461", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Vorb\u00fchl", "name_to": "Kindhausen AG, Eichholz", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.3878780496107, 47.38812127156657], [8.3854234503893, 47.38941372843344]], "type": "LineString"}, "id": "6462", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bernold", "name_to": "Bergdietikon, Vorb\u00fchl", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.3854234503893, 47.38941372843344], [8.385476784055065, 47.3893291381261], [8.385523374577254, 47.389417621589196], [8.3854234503893, 47.38941372843344]]], "type": "Polygon"}, "id": "6463", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bernold", "name_to": "Bergdietikon, Vorb\u00fchl", "seat_occupancy_mean": 20, "stroke": "#e1dd37", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.389489488045118, 47.39086171338643], [8.388270511954882, 47.388253286613576]], "type": "LineString"}, "id": "6464", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bergli", "name_to": "Bergdietikon, Bernold", "seat_occupancy_mean": 21, "stroke": "#e3db38", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.388270511954882, 47.388253286613576], [8.388352474916982, 47.38831057599168], [8.388261879379124, 47.38835291330998], [8.388270511954882, 47.388253286613576]]], "type": "Polygon"}, "id": "6465", "properties": {"FZ_AB": 2, "free_seats_max": 25, "free_seats_mean": 25, "name_from": "Bergdietikon, Bergli", "name_to": "Bergdietikon, Bernold", "seat_occupancy_mean": 21, "stroke": "#e3db38", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.394270483269954, 47.39894725475059], [8.389770016730047, 47.391391245249416]], "type": "LineString"}, "id": "6466", "properties": {"FZ_AB": 2, "free_seats_max": 24, "free_seats_mean": 23, "name_from": "Dietikon, Marmori-Weiher", "name_to": "Bergdietikon, Bergli", "seat_occupancy_mean": 25, "stroke": "#eecf3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.389770016730047, 47.391391245249416], [8.389857290734325, 47.39144006377231], [8.389771375651186, 47.39149123601565], [8.389770016730047, 47.391391245249416]]], "type": "Polygon"}, "id": "6467", "properties": {"FZ_AB": 2, "free_seats_max": 24, "free_seats_mean": 23, "name_from": "Dietikon, Marmori-Weiher", "name_to": "Bergdietikon, Bergli", "seat_occupancy_mean": 25, "stroke": "#eecf3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.392096754798446, 47.40363766280868], [8.393219245201553, 47.40244933719132]], "type": "LineString"}, "id": "6560", "properties": {"FZ_AB": 2, "free_seats_max": 21, "free_seats_mean": 21, "name_from": "Dietikon, Stelzenacker", "name_to": "Dietikon, H\u00e4tschen", "seat_occupancy_mean": 33, "stroke": "#faba39", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.393219245201553, 47.40244933719132], [8.393196124603854, 47.4025466276737], [8.393123428873414, 47.402477959407555], [8.393219245201553, 47.40244933719132]]], "type": "Polygon"}, "id": "6561", "properties": {"FZ_AB": 2, "free_seats_max": 21, "free_seats_mean": 21, "name_from": "Dietikon, Stelzenacker", "name_to": "Dietikon, H\u00e4tschen", "seat_occupancy_mean": 33, "stroke": "#faba39", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.393724492167495, 47.40220993978666], [8.396014186403933, 47.402046881641915]], "type": "LineString"}, "id": "6562", "properties": {"FZ_AB": 2, "free_seats_max": 22, "free_seats_mean": 22, "name_from": "Dietikon, H\u00e4tschen", "name_to": "Dietikon, Oberdorf", "seat_occupancy_mean": 29, "stroke": "#f5c53a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.396014186403933, 47.402046881641915], [8.395931354333179, 47.4021029070652], [8.395924250928731, 47.402003159676035], [8.396014186403933, 47.402046881641915]]], "type": "Polygon"}, "id": "6563", "properties": {"FZ_AB": 2, "free_seats_max": 22, "free_seats_mean": 22, "name_from": "Dietikon, H\u00e4tschen", "name_to": "Dietikon, Oberdorf", "seat_occupancy_mean": 29, "stroke": "#f5c53a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.396146465414027, 47.40177632595906], [8.394590963157402, 47.399454245469514]], "type": "LineString"}, "id": "6564", "properties": {"FZ_AB": 2, "free_seats_max": 23, "free_seats_mean": 23, "name_from": "Dietikon, Oberdorf", "name_to": "Dietikon, Marmori-Weiher", "seat_occupancy_mean": 26, "stroke": "#efcd3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.394590963157402, 47.399454245469514], [8.394680702180922, 47.39949836924607], [8.394597620357752, 47.39955402363187], [8.394590963157402, 47.399454245469514]]], "type": "Polygon"}, "id": "6565", "properties": {"FZ_AB": 2, "free_seats_max": 23, "free_seats_mean": 23, "name_from": "Dietikon, Oberdorf", "name_to": "Dietikon, Marmori-Weiher", "seat_occupancy_mean": 26, "stroke": "#efcd3a", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[8.396040656852302, 47.4067903866795], [8.392135693147697, 47.40402896332049]], "type": "LineString"}, "id": "6606", "properties": {"FZ_AB": 2, "free_seats_max": 20, "free_seats_mean": 19, "name_from": "Dietikon, Oetwilerstrasse", "name_to": "Dietikon, Stelzenacker", "seat_occupancy_mean": 37, "stroke": "#fdae35", "weekday": true}, "type": "Feature"}, {"geometry": {"coordinates": [[[8.392135693147697, 47.40402896332049], [8.392235271030575, 47.40403814184115], [8.392177533257078, 47.40411978955705], [8.392135693147697, 47.40402896332049]]], "type": "Polygon"}, "id": "6607", "properties": {"FZ_AB": 2, "free_seats_max": 20, "free_seats_mean": 19, "name_from": "Dietikon, Oetwilerstrasse", "name_to": "Dietikon, Stelzenacker", "seat_occupancy_mean": 37, "stroke": "#fdae35", "weekday": true}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_117760cf534f165327d4800348eb7936.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = ["name_from", "name_to", "seat_occupancy_mean", "free_seats_mean"];
+    let aliases = ["From: ", "To: ", "Average Seat Occupation[%]: ", "Average Free Seats: "];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{"className": "foliumtooltip", "sticky": true});
+                     
+    
+            geo_json_117760cf534f165327d4800348eb7936.addTo(map_4eccf0d932762b7148593d8fe453d712);
+        
+    
+            var layer_control_a69f26d711755defe5939ffaf84fab7a_layers = {
+                base_layers : {
+                    "cartodbdarkmatter" : tile_layer_fa87df16dc2393f8a40a9e00f650a85e,
+                },
+                overlays :  {
+                    "VBZ Data" : geo_json_117760cf534f165327d4800348eb7936,
+                },
+            };
+            let layer_control_a69f26d711755defe5939ffaf84fab7a = L.control.layers(
+                layer_control_a69f26d711755defe5939ffaf84fab7a_layers.base_layers,
+                layer_control_a69f26d711755defe5939ffaf84fab7a_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_4eccf0d932762b7148593d8fe453d712);
+
+        
+</script>
+</html>
