@@ -160,5 +160,5 @@ cython_debug/
 .idea/
 
 .DS_Store
-WZ/data/fahrgastzahlen_*/**
+data/fahrgastzahlen_*/**
 .Rproj.user
