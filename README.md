@@ -66,12 +66,18 @@ TODO: Luca: Describe the task
 
 ##### Data Preprocessing
 
-Luca Zhao -> Describe how you pre-process the data, e.g. how you handle missing values, how you encode categorical variables, etc. + link the jupyter notebook here
+Data were loaded and processed as the followings:
+1. Load the train (2022) and test (2023) datasets, fixing the incorrect character set in the training data.
+2. Remove the missing data which are around 5%, the reason behind the missing data is simply because the measurement didnt take place.
+3. Convert the departure time values into integer values with bins of range 0.5 hour.
+4. Transform the days of evaluations to boolean values, to preserve the information on which day of the of weekday the data was collected.
+5. Perform one-hot encoding on categorical column LineNames
+6. Add geological coordinates to the depart and destination stops so that stops added in 2023 can also be used to test the model. 
 
-##### Classical Machine Learning Methods
+A quick test of regression model was then performed using the linear regression model, selecting only one type of the transportation mean
+to make the computation faster, but it turned out that the regression models are not complex enough to predict.
 
-Luca Zhao -> Describe your linear regression model, random forest, SVC, etc. + link the jupyter notebook here
-
+https://github.com/sagerpascal/uzh-data-science-project/blob/main/src/Q5b_deeplearning_data_cleaning.ipynb
 
 ##### Deep Learning Methods
 
