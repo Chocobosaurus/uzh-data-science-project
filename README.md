@@ -11,6 +11,11 @@ Project members (sorted alphabetically):
 - Weijia Zhong
 - Xiaohan Zhu
 
+## Webpage
+
+We provide an overview of our results on the webpage  [sagerpascal.github.io/uzh-data-science-project](https://sagerpascal.github.io/uzh-data-science-project/).
+We use github actions to build and deploy the content in the [/docs](./docs) folder directly to this webpage.
+
 ## Data
 
 The data can be downloaded from the data collection of Zurich at [data.stadt-zuerich.ch](https://data.stadt-zuerich.ch/dataset/vbz_fahrgastzahlen_ogd).
