@@ -44,7 +44,7 @@ The maps are available as html in the [docs/static/maps](./docs/static/maps) fol
 
 We analyze the occupation of Zurich's public transportation regarding the factors weekday versus weekend, and academic calendar (exam session, semester break, lecture period).
 
-Average occupation and boxplots for occupation regarding weekday or weekend, and academic calendar are given. The R code is available here [src/Q4_Analysis_of_diverse_factors.Rmd](.src/Q3_VBZ_Geospatial_Analysis.ipynb).
+Average occupation and boxplots for occupation regarding weekday or weekend, and academic calendar are given. The R code is available here [src/Q4_Analysis_of_diverse_factors.Rmd](.src/Q4_Analysis_of_diverse_factors.Rmd).
 
 
 ## Q5: Prediction of Seat Availability
