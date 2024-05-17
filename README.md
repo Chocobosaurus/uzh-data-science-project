@@ -21,11 +21,17 @@ We use github actions to build and deploy the content in the [/docs](./docs) fol
 The data can be downloaded from the data collection of Zurich at [data.stadt-zuerich.ch](https://data.stadt-zuerich.ch/dataset/vbz_fahrgastzahlen_ogd).
 We provide snapshots of the data in the `data/` folder that allow reproducing the results of this project.
 
+## Plots
+
+The plots are available in the [plots](./plots) folder.
+These plots are created with the scripts in the [src](./src) folder.
+These scripts are described in the following sections.
+
 ## Q1: Development of Zurich’s Public Transportation System Over Time
 
 We analyze the development of Zurich's Public Transportation system across year 2014-2023, by characterizing the spatial coverage and 
 passenger volume in Zurich's public transportation system. <br>
-You can use the notebook [src/Q1Q2.md](./src/Q1Q2.md) to reproduce the results. <br>
+You can use the notebook [src/Q1Q2_development_utilization_analysis.md](./src/Q1Q2_development_utilization_analysis) to reproduce the results. <br>
 The distance coverages was computed with first filtering out the dataset for unique stop nodes and then summed up the distance between stops. <br>
 The passenger volumn was computed with mutiplying the mean of numbers of passengers aboarding the vehicle with the corresponding number of days. This is because the data was sampled in such a way that the days of a year was defined into different day types, and values in the input contains averaged numbers of passengers in the day type, and how many days are there in the day type, instead of massive individual observation values. 
 
@@ -34,13 +40,13 @@ The passenger volumn was computed with mutiplying the mean of numbers of passeng
 We analyze the mobility of passengers with the VBZ system, in the metric of passenger-kilometer (pkm, number of passengers mutiplied by the distance moved), with the intention to compare to other major cities in the world.<br>
 Pkm was computed with mutiplying the mean of numbers of passengers onboard with the corresponding number of days and the distance traveled.
 
-You can also use the notebook [src/Q1Q2.md](./src/Q1Q2.md) to reproduce the results.
+You can also use the notebook [src/Q1Q2_development_utilization_analysis.md](./src/Q1Q2_development_utilization_analysis) to reproduce the results.
 
 
 ## Q3: Spatiotemporal Distribution of Passengers
 
 We analyze the spatiotemporal distribution of passengers in Zurich's public transportation system.
-You can use the notebook [src/Q3_VBZ_Geospatial_Analysis.ipynb](./src/Q3_VBZ_Geospatial_Analysis.ipynb) to reproduce the results.
+You can use the notebook [src/Q3_geospatial_analysis.ipynb](./src/Q3_geospatial_analysis.ipynb) to reproduce the results.
 
 This script creates **maps visualizing the traffic**. First, we visualize the connections (between stops) as lines on top of a map of Zurich.
 The lines are colored according to the vehicle utilization (free seats).
@@ -53,7 +59,7 @@ The maps are available as html in the [docs/static/maps](./docs/static/maps) fol
 
 We analyze the occupation of Zurich's public transportation regarding the factors weekday versus weekend, and academic calendar (exam session, lecture period).
 
-Average occupation and boxplots for occupation regarding weekday or weekend, and academic calendar are given. The R code is available here [src/Q4_Analysis_of_diverse_factors_w_addtionalinfo.Rmd](./src/Q4_Analysis_of_diverse_factors_w_addtionalinfo.md).
+Average occupation and boxplots for occupation regarding weekday or weekend, and academic calendar are given. The R code is available here [src/Q4_analysis_of_diverse_factors_w_addtionalinfo.Rmd](./src/Q4_analysis_of_diverse_factors_w_addtionalinfo).
 
 
 ## Q5: Prediction of Freeseats
@@ -71,10 +77,10 @@ There has been also attempts done with 2017 data as the training set and 2019 da
 
 Mean absolute percentage error (MAPE), mean absolute error (MAE) and mean square erro (MSE) together with MAE of the median predictor were computed on the prediction on the test set for evaluation.<br>
 
-You can use the notebook<br>
-[src/Q5_datacleaning.ipynb](./src/Q5_datacleaning.ipynb) <br>
-[src/Q5_norm_train.ipynb](./src/Q5_norm_train.ipynb) <br>
-[src/Q5_nonorm_train.ipynb](./src/Q5_nonorm_train.ipynb) <br>
+You can use the notebook
+- [src/Q5_data_cleaning.ipynb](./src/Q5_data_cleaning.ipynb)
+- [src/Q5_norm_train.ipynb](./src/Q5_norm_train.ipynb)
+- [src/Q5_no-norm_train.ipynb](./src/Q5_no-norm_train.ipynb)
 to reproduce the results.
 
 ### Q5b: Predicting Passenger numbers
@@ -89,10 +95,12 @@ Data were loaded and processed as the followings:
 5. Perform one-hot encoding on categorical column LineNames
 6. Add geological coordinates to the depart and destination stops so that stops added in 2023 can also be used to test the model. 
 
+Fore more details, please refer to the notebook [src/Q5b_deep_learning_data_cleaning.ipynb](./src/Q5b_deep_learning_data_cleaning.ipynb).
+
 A quick test of regression model was then performed using the linear regression model, selecting only one type of the transportation mean
 to make the computation faster, but it turned out that the regression models are not complex enough to predict.
-
-https://github.com/sagerpascal/uzh-data-science-project/blob/main/src/Q5b_deeplearning_data_cleaning.ipynb
+Fore more details, please refer to the notebook [src/Q5b_deep_learning_data_cleaning.ipynb](./src/Q5b_deep_learning_data_cleaning.ipynb) and
+[src/Q5b_run_regression_models](./src/Q5b_run_regression_models).
 
 ##### Deep Learning Methods
 
@@ -121,4 +129,4 @@ does not reduce for 3 epochs.
 
 We calculate the mean absolute error and mean square error on de-normalized values to evaluate the performance of the model.
 We also compare the model performance when excluding the GPS coordinates which we added from an external source.
-The notebook is available at [src/Q5b_Occupacy_Prediction_Deep_Learning](./src/Q5b_Occupacy_Prediction_Deep_Learning.ipynb) and plots are in [plots/Q5b](./plots/Q5b).
+The notebook is available at [src/Q5b_run_deep_learning_models.ipynb](./src/Q5b_run_deep_learning_models.ipynb) and plots are in [plots/Q5b](./plots/Q5b).
