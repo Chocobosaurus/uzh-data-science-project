@@ -57,6 +57,7 @@ colnames(punkte)
 # Examine a specific line 
 linie42 <- subset(df, df$Linien_Id == 42)
 sum(linie42$Tage_DTV == 0)
+sum(is.na(df$Besetzung))
 # no zeros in Tage_DTV
 
 sum(linie42[!duplicated(linie42$Tage_DTV), ]$Tage_DTV)
@@ -411,31 +412,32 @@ b2
 ```
 
 
-```{r Q2: Utilization of the intrastructure by passenger/km}
+```{r Q2: Utilization of the intrastructure by passenger/km per capita}
 # to do: by years, compute passenger/km of public transport coverage
 
 compute_pkm <- function(df) {
   df <- df %>%
-    mutate(product = Besetzung * Distanz * Tage_DTV)
+    mutate(product = Besetzung * Distanz * Tage_DTV / 443037) # the number of inhabitants in ZH in 2023
   df %>% summarise(pkm = sum(product, na.rm = TRUE))
 }
 
 pkm <- sapply(dfs, compute_pkm)
 
-pkm_df <- data.frame(Years = years, pass_km = unlist(pkm)/10^6)
+pkm_df <- data.frame(Years = years, pass_km = unlist(pkm)/10^3)
 
 p <- ggplot(pkm_df, aes(x = Years, y = pass_km)) +
   geom_bar(stat = "identity", fill = "#de4968", color = "grey") +
-  labs(title = "Utilization of Public Transportation", x = "Years", y = "Passenger (k)-km") +
+  labs(title = "Utilization of Public Transportation", x = "Years", y = "Passenger-km per capita") +
   scale_y_continuous(labels = label_comma())
 
 # ggsave("results/Q2.png", width = 8, height = 6, dpi = 600)
 print(p)
 ```
-## The purpose of this question is to compare with the data collected with other major cities of the world. 
-However, it's difficult to find fair comparisons because publicly available data are either Metro only or not at the level of a single city. Here I tried to make a separate set of tram only to see how it works.
 
-```{r Q2+: Utilization of the intrastructure by passenger/km, trams only}
+The purpose of this question is to compare with the data collected with other major cities of the world. 
+
+
+```{r Q2+: Utilization of the intrastructure by passenger/km trams only not per capita}
 # to compare with statistica data as a proxy to metro
 pkm <- sapply(tram_dfs, compute_pkm)
 
