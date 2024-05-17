@@ -51,7 +51,7 @@ The maps are available as html in the [docs/static/maps](./docs/static/maps) fol
 
 ## Q4: Analysis of the Interplay Between Diverse Factors
 
-We analyze the occupation of Zurich's public transportation regarding the factors weekday versus weekend, and academic calendar (exam session, semester break, lecture period).
+We analyze the occupation of Zurich's public transportation regarding the factors weekday versus weekend, and academic calendar (exam session, lecture period).
 
 Average occupation and boxplots for occupation regarding weekday or weekend, and academic calendar are given. The R code is available here [src/Q4_Analysis_of_diverse_factors_w_addtionalinfo.Rmd](./src/Q4_Analysis_of_diverse_factors_w_addtionalinfo.md).
 
