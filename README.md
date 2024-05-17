@@ -69,10 +69,12 @@ We applied different machine leaning methods with the goal to predict seat avail
 ### Q5a: Prediction of Occupancy
 
 We applied machine learning models trained with data in the earlier years in order to predict for a given later year. In order to do so, we first prepared the data to keep only relevant feature variables as Time/GPS_Latitude/GPS_Longitude/Weekday-weekend_attribute/Vehicle_type.<br>
-The predictor variable is set to Occupancy which is the number of passengers onboard/total number of empty seats for less dependency on vehivle type.<br>
-Additionally information about the maximum capacity of the vehicle, which is reserved for calculating the number of predicted empty seat ((1- Occupany) * Capacity) with minimal possible value = 0.<br>
 
-The training was first attempted with using 2022 dataset as the training set and 2023 dataset as the test set. Linear regression models and ramdom forest could be successfully trained with grid searching good parameters, though the training of SVR became extremely time consuming. As so we then trimmed the data down to tram only and trained SVR without grid searching parameters, together with dimension reduction with PCA.<br>
+The predictor variable is set to Occupancy which is the number of passengers onboard/total number of empty seats for less dependency on vehivle type.<br>
+Additionally, information about the maximum capacity of the vehicle, which is reserved for calculating the number of predicted empty seat ((1- Occupany) * Capacity) with minimal possible value = 0.<br>
+
+The training was first attempted with using 2022 dataset as the training set and 2023 dataset as the test set.<br>
+Linear regression models and ramdom forest could be successfully trained with grid searching good parameters, though the training of SVR became extremely time consuming. As so we then trimmed the data down to tram only and trained SVR without grid searching parameters, together with dimension reduction with PCA.<br>
 There has been also attempts done with 2017 data as the training set and 2019 data as the test set, with and without normalizing on the predictor.<br>
 
 Mean absolute percentage error (MAPE), mean absolute error (MAE) and mean square erro (MSE) together with MAE of the median predictor were computed on the prediction on the test set for evaluation.<br>
