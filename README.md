@@ -56,7 +56,11 @@ We analyze the occupation of Zurich's public transportation regarding the factor
 Average occupation and boxplots for occupation regarding weekday or weekend, and academic calendar are given. The R code is available here [src/Q4_Analysis_of_diverse_factors_w_addtionalinfo.Rmd](./src/Q4_Analysis_of_diverse_factors_w_addtionalinfo.md).
 
 
-## Q5: Prediction of Occupancy
+## Q5: Prediction of Freeseats
+
+We applied different machine leaning methods with the goal to predict seat availability of the VBZ system with different feature variables.
+
+### Q5a: Prediction of Occupancy
 
 We applied machine learning models trained with data in the earlier years in order to predict for a given later year. In order to do so, we first prepared the data to keep only relevant feature variables as Time/GPS_Latitude/GPS_Longitude/Weekday-weekend_attribute/Vehicle_type.<br>
 The predictor variable is set to Occupancy which is the number of passengers onboard/total number of empty seats for less dependency on vehivle type.<br>
