@@ -57,7 +57,7 @@
                         <span class="author-block">
                   <a href="TODO" target="_blank">Luca Zhao</a><sup>*</sup>,</span>
                         <span class="author-block">
-                            <a href="TODO" target="_blank">Weijia Zhong</a><sup>*</sup>,</span>
+                            <a href="https://www.linkedin.com/in/weijia-zhong-9b9a121b3/" target="_blank">Weijia Zhong</a><sup>*</sup>,</span>
                         <span class="author-block">
                     <a href="TODO" target="_blank">Xiaohan Zhu</a><sup>*</sup>
                   </span>
@@ -65,7 +65,7 @@
 
                     <div class="is-size-5 publication-authors">
                         <span class="author-block">Zurich University<br>Project Work: Introduction to Data Science</span>
-                        <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                        <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution</small></span>
                     </div>
 
 
@@ -146,7 +146,7 @@
     <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
-                <h2 class="title is-3">Abstract</h2>
+                <h2 class="title is-3 is-centered has-text-centered">Abstract</h2>
                 <div class="content has-text-justified">
                     <p>
                     Public transportation systems play a crucial role in urban mobility, and analyzing their dynamics is essential for optimizing efficiency and planning for future needs. In this study, we employ advanced data analytics techniques to delve into the public transportation system of Zurich, Switzerland. Leveraging publicly available CSV datasets released by the Canton of Zurich, we explore the temporal evolution of transportation metrics, including spatial coverage, passenger volume, and utilization intensity. Additionally, we investigate the spatiotemporal distribution of passengers relative to vehicle capacity, examining factors such as spatial location, weekday patterns, and academic calendar influences. Our analysis is guided by fundamental research questions encompassing historical trends, comparative analyses with other global cities, and predictive modeling of seat availability. While our findings offer valuable insights into Zurich's transportation landscape, we acknowledge the inherent limitations stemming from dynamic factors such as evolving traffic schedules and political decisions. Nonetheless, our study provides a comprehensive framework for understanding and potentially enhancing public transportation systems in Zurich and beyond.
@@ -164,11 +164,32 @@
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title is-3">Overview Results</h2>
+            <h2 class="title is-3 is-centered has-text-centered">Overview Results</h2>
             
-            TODO: Please insert your plots here
+            Below, we present some results in an overview. For more detailed results, please refer to the respective sections and have a look at our presentation.
             
             <div id="results-carousel" class="carousel results-carousel">
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="static/images/distance_coverage.png" alt="Distance Coverage per Vehicle" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The distance coverage of different vehicle types over the years.
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="static/images/Heatmap_volume.png" alt="The passenger volume as heatmap per daytime" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The passenger volume as heatmap per time of the day for different vehicle types and the night connections.
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="static/images/exam_sessions.png" alt="Influence Exam Sessions" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The influence of exam sessions on the number of passengers at university stops, compared to the average number of passengers.
+                    </h2>
+                </div>
                 <div class="item">
                     <!-- Your image here -->
                     <img src="static/maps/map_08_7_True.png" alt="Traffic Visualization" style="max-height:600px;display: block; margin: auto;">
@@ -195,11 +216,71 @@
 </section>
 <!-- End image carousel -->
 
+<section class="hero is-small  is-light">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-3 is-centered has-text-centered">Development of Zurich’s Public Transportation System Over Time</h2>
+            <p>
+            We analyzed the evolution of Zurich's public transportation system by computing the total distance coverage and passenger volume for each year from 2014 to 2023. Our analysis revealed that the total distance coverage remained relatively stable over this period. Passenger volume also exhibited a consistent trend, except for a significant decrease in 2020 and 2021, likely due to the impact of the COVID-19 pandemic.
+            </p>
+            <p>
+            Further investigation was conducted to understand the contributions of different modes of transportation to these metrics, specifically focusing on trams, buses, and trolleybuses. We also included the Forchbahn, Seilbahn, and the night network in our analysis.
+            </p>
+            <p>
+            An interesting observation from 2022 to 2023 was a noticeable shift in passenger volume from the bus system to the tram system. This shift indicates a potential change in passenger preferences or operational efficiencies within the public transportation network.
+            </p>
+            <p>
+            Overall, our study highlights the resilience of Zurich's public transportation system in maintaining service coverage and adapting to changing passenger demands.
+            </p>
+
+            <div id="results-carousel3" class="carousel results-carousel">
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="static/images/passenger volume.png" alt="Distance Coverage per Vehicle" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The passenger volume in different vehicle types over the years.
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="static/images/distance_coverage.png" alt="Distance Coverage per Vehicle" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The distance coverage of different vehicle types over the years.
+                    </h2>
+                </div>
+                <div class="item">
+                    <!-- Your image here -->
+                    <img src="static/images/Heatmap_volume.png" alt="The passenger volume as heatmap per daytime" style="max-height:600px;display: block; margin: auto;">
+                    <h2 class="subtitle has-text-centered">
+                        The passenger volume as heatmap per time of the day for different vehicle types and the night connections.
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-3 is-centered has-text-centered">Development of Zurich’s Public Transportation System Over Time</h2>
+            <p>We hypothesized that the average number of passengers using Zurich’s public transportation system is affected by factors such as weekday/weekend and lecture period/exam session, particularly at stops in the vicinity of universities.</p>
+            <p>Therefore, we computed the average number of passengers after grouping the data accordingly. Interestingly, we observed more passengers on average on weekdays, likely due to commuting needs.</p>
+            <br>
+            <img src="static/images/Occupation_Daytype.png" alt="Occupation per Daytype" style="width:600px;display: block; margin: auto;">
+            <br>
+            <p>Comparing exam days to the lecture period, it was surprising to see a decreased passenger number during exam periods, regardless of proximity to universities. Specifically, at the ETH/Hönggerberg stop, which is predominantly used by students, passenger behavior did not differ significantly. Seasonal factors, such as extreme weather conditions during exam sessions, might have a significant confounding effect.</p>
+            <br>
+            <img src="static/images/exam_sessions_2.png" alt="Influence Exam Sessions" style="width:600px;display: block; margin: auto;">
+        </div>
+    </div>
+</section>
+
 
 <section class="hero is-small is-light">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title is-3">Links to Traffic Maps</h2>
+            <h2 class="title is-3 is-centered has-text-centered">Links to Traffic Maps</h2>
             <table class="table is-fullwidth">
                 <thead>
                 <tr>
@@ -389,7 +470,7 @@
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title is-3">Predicting Seat Occupancy</h2>
+            <h2 class="title is-3 is-centered has-text-centered">Predicting Seat Occupancy</h2>
 
             <p>
                 We use various techniques to predict the seat occupancy of vehicles in Zurich.
@@ -444,24 +525,16 @@
 </section>
 
 
-<section class="hero is-small  is-light">
-    <div class="hero-body">
-        <div class="container">
-            <h2 class="title is-3">TODO: Add some general findings here</h2>
-        </div>
-    </div>
-</section>
-
 
 <!--BibTex citation -->
 <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
         <pre><code>
-@misc{citekey,
+@misc{sager_zhao_zhong_zhu_2024,
   author       = "Sager, Pascal and Zhao, Luca and Zhong, Weijia and Zhu, Xiaohan",
   title        = "Navigating Zurich: A Comprehensive Analysis of Urban Traffic Dynamics",
-  month        = "June",
+  month        = "May",
   year         = "2024",
   note         = "Zurich University Project Work: Introduction to Data Science"
 }
