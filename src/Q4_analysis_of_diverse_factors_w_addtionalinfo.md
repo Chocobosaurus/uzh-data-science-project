@@ -63,7 +63,7 @@ barplot(weekday_vs_weekend$avg_passengers, names.arg = weekday_vs_weekend$day_ty
         xlab = "Day Type", ylab = "Average Occupation")
 ```
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/Loading%20data,%20grouping%20and%20visualize%20gross%20average-1.png)<!-- -->
+![](../plots/Q4/additionalfigs/Loading%20data,%20grouping%20and%20visualize%20gross%20average-1.png)<!-- -->
 
 ``` r
 # Plotting the difference between academic and non-academic periods
@@ -72,7 +72,7 @@ barplot(semester_vs_break$avg_passengers, names.arg = semester_vs_break$academic
         xlab = "Academic Calendar", ylab = "Average Occupation")
 ```
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/Loading%20data,%20grouping%20and%20visualize%20gross%20average-2.png)<!-- -->
+![](../plots/Q4/additionalfigs/Loading%20data,%20grouping%20and%20visualize%20gross%20average-2.png)<!-- -->
 
 ``` r
 # Filter out rows with zero or negative passenger counts
@@ -109,7 +109,7 @@ print(weekday_vs_weekend_boxplot)
     ## Warning: Removed 21669 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/Visualization%20with%20barplot-1.png)<!-- -->
+![](../plots/Q4/additionalfigs/Visualization%20with%20barplot-1.png)<!-- -->
 
 ``` r
 print(semester_vs_break_boxplot)
@@ -118,7 +118,7 @@ print(semester_vs_break_boxplot)
     ## Warning: Removed 21669 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/Visualization%20with%20barplot-2.png)<!-- -->
+![](../plots/Q4/additionalfigs/Visualization%20with%20barplot-2.png)<!-- -->
 
 ### Part 2: <br>
 
@@ -158,7 +158,7 @@ barplot(semester_vs_break_filtered$avg_passengers, names.arg = semester_vs_break
         xlab = "Academic Calendar", ylab = "Average Occupation")
 ```
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/Same%20factor%20analysis%20with%20stops%20near%20universities%20only-1.png)<!-- -->
+![](../plots/Q4/additionalfigs/Same%20factor%20analysis%20with%20stops%20near%20universities%20only-1.png)<!-- -->
 
 ``` r
 # Filter out rows with zero or negative passenger counts
@@ -179,7 +179,7 @@ semester_vs_break_boxplot_filtered <- ggplot(reisende_data_filtered, aes(x = aca
 print(semester_vs_break_boxplot_filtered)
 ```
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/Same%20factor%20analysis%20with%20stops%20near%20universities%20only-2.png)<!-- -->
+![](../plots/Q4/additionalfigs/Same%20factor%20analysis%20with%20stops%20near%20universities%20only-2.png)<!-- -->
 
 ``` r
 reisende_data$dataset <- factor("All Routes", levels = c("All Routes", "University Stops"))
@@ -209,7 +209,7 @@ print(combined_boxplot)
     ## Warning: Removed 339 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/Same%20factor%20analysis%20with%20stops%20near%20universities%20only-3.png)<!-- -->
+![](../plots/Q4/additionalfigs/Same%20factor%20analysis%20with%20stops%20near%20universities%20only-3.png)<!-- -->
 
 ``` r
 # Filter stops near universities
@@ -259,7 +259,7 @@ barplot(semester_vs_break_filtered$avg_passengers, names.arg = semester_vs_break
         xlab = "Academic Calendar", ylab = "Average Occupation")
 ```
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/same%20analysis,%20restricing%20university%20stops%20to%20ETH/Hongg%20only%20for%20minimal%20confounder%20effects-1.png)<!-- -->
+![](../plots/Q4/additionalfigs/same%20analysis,%20restricing%20university%20stops%20to%20ETH/Hongg%20only%20for%20minimal%20confounder%20effects-1.png)<!-- -->
 
 ``` r
 # Filter out rows with zero or negative passenger counts
@@ -280,7 +280,7 @@ semester_vs_break_boxplot_filtered <- ggplot(reisende_data_filtered, aes(x = aca
 print(semester_vs_break_boxplot_filtered)
 ```
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/same%20analysis,%20restricing%20university%20stops%20to%20ETH/Hongg%20only%20for%20minimal%20confounder%20effects-2.png)<!-- -->
+![](../plots/Q4/additionalfigs/same%20analysis,%20restricing%20university%20stops%20to%20ETH/Hongg%20only%20for%20minimal%20confounder%20effects-2.png)<!-- -->
 
 ``` r
 reisende_data$dataset <- factor("All Routes", levels = c("All Routes", "University Stops"))
@@ -315,4 +315,4 @@ print(combined_boxplot)
     ## Warning: Removed 1291 rows containing non-finite outside the scale range
     ## (`stat_boxplot()`).
 
-![](Q4_Analysis_of_diverse_factors_w_addtionalinfo_files/figure-gfm/same%20analysis,%20restricing%20university%20stops%20to%20ETH/Hongg%20only%20for%20minimal%20confounder%20effects-3.png)<!-- -->
+![](../plots/Q4/additionalfigs/same%20analysis,%20restricing%20university%20stops%20to%20ETH/Hongg%20only%20for%20minimal%20confounder%20effects-3.png)<!-- -->

@@ -146,7 +146,7 @@ plot <- distanz(dfs)
 print(plot)
 ```
 
-![](Q1Q2_files/figure-gfm/Q1.1:Spatial%20coverage%20of%20VBZ%20system%20across%20the%20years-1.png)<!-- -->
+![](../plots/Q1Q2/Q1.1:Spatial%20coverage%20of%20VBZ%20system%20across%20the%20years-1.png)<!-- -->
 
 ``` r
 # einsteiger * Tage_DTV as passenger volumn
@@ -173,7 +173,7 @@ plot <- passvol(dfs)
 print(plot)
 ```
 
-![](Q1Q2_files/figure-gfm/Q1.2:%20Passenger%20volume%20change%20over%20the%20years-1.png)<!-- -->
+![](../plots/Q1Q2/Q1.2:%20Passenger%20volume%20change%20over%20the%20years-1.png)<!-- -->
 
 ``` r
 # Merge with LINIE.csv
@@ -278,7 +278,7 @@ fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Tramways", gp =
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Tramways", gp = gpar(fontsize = 20)))
 ```
 
-![](Q1Q2_files/figure-gfm/Q1+%20plots:%20Change%20in%20Tramways-1.png)<!-- -->
+![](../plots/Q1Q2/Q1+%20plots:%20Change%20in%20Tramways-1.png)<!-- -->
 
 ``` r
 fig1 <- distanz(bus_dfs)
@@ -288,7 +288,7 @@ fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Buses", gp = gp
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Buses", gp = gpar(fontsize = 20)))
 ```
 
-![](Q1Q2_files/figure-gfm/Q1+%20plots:%20Change%20in%20Bus-1.png)<!-- -->
+![](../plots/Q1Q2/Q1+%20plots:%20Change%20in%20Bus-1.png)<!-- -->
 
 ``` r
 fig1 <- distanz(trolley_dfs)
@@ -298,7 +298,7 @@ fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Trolleybus", gp
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Trolleybus", gp = gpar(fontsize = 20)))
 ```
 
-![](Q1Q2_files/figure-gfm/Q1+%20plots:%20Change%20in%20Trolleybus-1.png)<!-- -->
+![](../plots/Q1Q2/Q1+%20plots:%20Change%20in%20Trolleybus-1.png)<!-- -->
 
 ``` r
 fig1 <- distanz(seilbahn_dfs)
@@ -309,7 +309,7 @@ fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Cablecar (Seilb
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Cablecar (Seilbahn)", gp = gpar(fontsize = 20)))
 ```
 
-![](Q1Q2_files/figure-gfm/Q1+%20plots:%20Change%20in%20Cablecar%20(Seilbahn)-1.png)<!-- -->
+![](../plots/Q1Q2/Q1+%20plots:%20Change%20in%20Cablecar%20(Seilbahn)-1.png)<!-- -->
 
 ``` r
 fig1 <- distanz(forchbahn_dfs)
@@ -319,7 +319,7 @@ fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Forchbahn", gp 
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Forchbahn", gp = gpar(fontsize = 20)))
 ```
 
-![](Q1Q2_files/figure-gfm/Q1+%20plots:%20Change%20in%20Forchbahn-1.png)<!-- -->
+![](../plots/Q1Q2/Q1+%20plots:%20Change%20in%20Forchbahn-1.png)<!-- -->
 
 ``` r
 fig1 <- distanz(nacht_dfs)
@@ -329,7 +329,7 @@ fig <- arrangeGrob(fig1, fig2, ncol=2, top = textGrob("Change in Night Network",
 grid.arrange(fig1, fig2, ncol=2, top = textGrob("Change in Night Network", gp = gpar(fontsize = 20)))
 ```
 
-![](Q1Q2_files/figure-gfm/Q1+%20plots:%20Change%20in%20Night%20network-1.png)<!-- -->
+![](../plots/Q1Q2/Q1+%20plots:%20Change%20in%20Night%20network-1.png)<!-- -->
 
 ``` r
 distanz0 <- function(dfs) {
@@ -371,7 +371,7 @@ b1 <- ggplot(melt_dis, aes(x = Years, y = value, fill = variable)) +
 b1
 ```
 
-![](Q1Q2_files/figure-gfm/Q1+:%20Compiling%20into%20stacked%20barplot_Distance-1.png)<!-- -->
+![](../plots/Q1Q2/Q1+:%20Compiling%20into%20stacked%20barplot_Distance-1.png)<!-- -->
 
 ``` r
 # Some difference with stats from: 
@@ -413,7 +413,7 @@ b2 <- ggplot(melt_pass, aes(x = Years, y = value, fill = variable)) +
 b2
 ```
 
-![](Q1Q2_files/figure-gfm/Q1+:%20Compiling%20into%20stacked%20barplot_Volume-1.png)<!-- -->
+![](../plots/Q1Q2/Q1+:%20Compiling%20into%20stacked%20barplot_Volume-1.png)<!-- -->
 
 ``` r
 # to do: by years, compute passenger/km of public transport coverage
@@ -437,7 +437,7 @@ p <- ggplot(pkm_df, aes(x = Years, y = pass_km)) +
 print(p)
 ```
 
-![](Q1Q2_files/figure-gfm/Q2:%20Utilization%20of%20the%20intrastructure%20by%20passenger/km%20per%20capita-1.png)<!-- -->
+![](../plots/Q1Q2/Q2:%20Utilization%20of%20the%20intrastructure%20by%20passenger/km%20per%20capita-1.png)<!-- -->
 
 The purpose of this question is to compare with the data collected with
 other major cities of the world.
@@ -457,7 +457,7 @@ p <- ggplot(pkm_df, aes(x = Years, y = pass_km)) +
 print(p)
 ```
 
-![](Q1Q2_files/figure-gfm/Q2+:%20Utilization%20of%20the%20intrastructure%20by%20passenger/km%20trams%20only%20not%20per%20capita-1.png)<!-- -->
+![](../plots/Q1Q2/Q2+:%20Utilization%20of%20the%20intrastructure%20by%20passenger/km%20trams%20only%20not%20per%20capita-1.png)<!-- -->
 
 ``` r
 ## Do we normalize? Traffic volume differs a lot i.e. Trolleybus vs Bus -> log scale
@@ -517,7 +517,7 @@ p1 <- ggplot(rvph_df, aes(variable, vehicle_types, fill= value)) +
 print(p1)
 ```
 
-![](Q1Q2_files/figure-gfm/Q1++:%20Heatmaps%20of%20traffic%20volumn%20by%20hours%20for%20each%20vehivle%20type-1.png)<!-- -->
+![](../plots/Q1Q2/Q1++:%20Heatmaps%20of%20traffic%20volumn%20by%20hours%20for%20each%20vehivle%20type-1.png)<!-- -->
 
 ``` r
 scale_255 <- function(x) {
@@ -557,4 +557,4 @@ p2 <- ggplot(scaled_rvph_df, aes(Var2, Var1, fill= value)) +
 print(p2)
 ```
 
-![](Q1Q2_files/figure-gfm/Q1++:%20Heatmaps%20of%20traffic%20volumn%20by%20hours%20for%20each%20vehivle%20type-2.png)<!-- -->
+![](../plots/Q1Q2/Q1++:%20Heatmaps%20of%20traffic%20volumn%20by%20hours%20for%20each%20vehivle%20type-2.png)<!-- -->
